@@ -1,0 +1,217 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "user_led[0]",
+					"strict" : false
+				},
+				{
+					"name" : "user_led[1]",
+					"strict" : false
+				},
+				{
+					"name" : "user_led[2]",
+					"strict" : false
+				},
+				{
+					"name" : "user_led[3]",
+					"strict" : false
+				},
+				{
+					"name" : "enet_mdc",
+					"strict" : false
+				},
+				{
+					"name" : "enet_resetn",
+					"strict" : false
+				},
+				{
+					"name" : "enet_tx_clk",
+					"strict" : false
+				},
+				{
+					"name" : "enet_tx_d[0]",
+					"strict" : false
+				},
+				{
+					"name" : "enet_tx_d[1]",
+					"strict" : false
+				},
+				{
+					"name" : "enet_tx_d[2]",
+					"strict" : false
+				},
+				{
+					"name" : "enet_tx_d[3]",
+					"strict" : false
+				},
+				{
+					"name" : "enet_tx_en",
+					"strict" : false
+				},
+				{
+					"name" : "hbus_rstn",
+					"strict" : false
+				},
+				{
+					"name" : "hbus_clk0p",
+					"strict" : false
+				},
+				{
+					"name" : "hbus_clk0n",
+					"strict" : false
+				},
+				{
+					"name" : "hbus_cs2n",
+					"strict" : false
+				},
+				{
+					"name" : "q_sys:q_sys_inst|q_sys_ext_epcq_flash:ext_epcq_flash|q_sys_ext_epcq_flash_asmi2_inst_epcq_ctrl:asmi2_inst_epcq_ctrl|altera_asmi2_qspi_interface:asmi2_qspi_interface_0|altera_asmi2_qspi_interface_asmiblock:dedicated_interface|dut_asmiblock~ALTERA_DCLK",
+					"strict" : false
+				},
+				{
+					"name" : "q_sys:q_sys_inst|q_sys_ext_epcq_flash:ext_epcq_flash|q_sys_ext_epcq_flash_asmi2_inst_epcq_ctrl:asmi2_inst_epcq_ctrl|altera_asmi2_qspi_interface:asmi2_qspi_interface_0|altera_asmi2_qspi_interface_asmiblock:dedicated_interface|dut_asmiblock~ALTERA_SCE",
+					"strict" : false
+				},
+				{
+					"name" : "q_sys:q_sys_inst|q_sys_ext_epcq_flash:ext_epcq_flash|q_sys_ext_epcq_flash_asmi2_inst_epcq_ctrl:asmi2_inst_epcq_ctrl|altera_asmi2_qspi_interface:asmi2_qspi_interface_0|altera_asmi2_qspi_interface_asmiblock:dedicated_interface|dut_asmiblock~ALTERA_SDO",
+					"strict" : false
+				},
+				{
+					"name" : "enet_mdio",
+					"strict" : false
+				},
+				{
+					"name" : "arduino_adc_sda",
+					"strict" : false
+				},
+				{
+					"name" : "arduino_adc_scl",
+					"strict" : false
+				},
+				{
+					"name" : "hbus_rwds",
+					"strict" : false
+				},
+				{
+					"name" : "hbus_dq[0]",
+					"strict" : false
+				},
+				{
+					"name" : "hbus_dq[1]",
+					"strict" : false
+				},
+				{
+					"name" : "hbus_dq[2]",
+					"strict" : false
+				},
+				{
+					"name" : "hbus_dq[3]",
+					"strict" : false
+				},
+				{
+					"name" : "hbus_dq[4]",
+					"strict" : false
+				},
+				{
+					"name" : "hbus_dq[5]",
+					"strict" : false
+				},
+				{
+					"name" : "hbus_dq[6]",
+					"strict" : false
+				},
+				{
+					"name" : "hbus_dq[7]",
+					"strict" : false
+				},
+				{
+					"name" : "user_pb[0]",
+					"strict" : false
+				},
+				{
+					"name" : "hbus_clk_50m",
+					"strict" : false
+				},
+				{
+					"name" : "c10_resetn",
+					"strict" : false
+				},
+				{
+					"name" : "c10_clk50m",
+					"strict" : false
+				},
+				{
+					"name" : "enet_rx_clk",
+					"strict" : false
+				},
+				{
+					"name" : "q_sys:q_sys_inst|q_sys_ext_epcq_flash:ext_epcq_flash|q_sys_ext_epcq_flash_asmi2_inst_epcq_ctrl:asmi2_inst_epcq_ctrl|altera_asmi2_qspi_interface:asmi2_qspi_interface_0|altera_asmi2_qspi_interface_asmiblock:dedicated_interface|dut_asmiblock~ALTERA_DATA0",
+					"strict" : false
+				},
+				{
+					"name" : "user_dip[0]",
+					"strict" : false
+				},
+				{
+					"name" : "user_dip[1]",
+					"strict" : false
+				},
+				{
+					"name" : "user_pb[1]",
+					"strict" : false
+				},
+				{
+					"name" : "user_pb[3]",
+					"strict" : false
+				},
+				{
+					"name" : "user_dip[2]",
+					"strict" : false
+				},
+				{
+					"name" : "user_pb[2]",
+					"strict" : false
+				},
+				{
+					"name" : "enet_rx_dv",
+					"strict" : false
+				},
+				{
+					"name" : "enet_rx_d[3]",
+					"strict" : false
+				},
+				{
+					"name" : "enet_rx_d[2]",
+					"strict" : false
+				},
+				{
+					"name" : "enet_rx_d[0]",
+					"strict" : false
+				},
+				{
+					"name" : "enet_rx_d[1]",
+					"strict" : false
+				},
+				{
+					"name" : "altera_reserved_tms",
+					"strict" : false
+				},
+				{
+					"name" : "altera_reserved_tck",
+					"strict" : false
+				},
+				{
+					"name" : "altera_reserved_tdi",
+					"strict" : false
+				},
+				{
+					"name" : "altera_reserved_tdo",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

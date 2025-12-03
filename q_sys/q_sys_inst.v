@@ -1,0 +1,46 @@
+	q_sys u0 (
+		.clock_bridge_0_in_clk_clk               (<connected-to-clock_bridge_0_in_clk_clk>),               //               clock_bridge_0_in_clk.clk
+		.enet_clk_125m_in_clk                    (<connected-to-enet_clk_125m_in_clk>),                    //                    enet_clk_125m_in.clk
+		.enet_pll_areset_conduit_export          (<connected-to-enet_pll_areset_conduit_export>),          //             enet_pll_areset_conduit.export
+		.enet_pll_c0_125m_clk                    (<connected-to-enet_pll_c0_125m_clk>),                    //                    enet_pll_c0_125m.clk
+		.enet_pll_c1_25m_clk                     (<connected-to-enet_pll_c1_25m_clk>),                     //                     enet_pll_c1_25m.clk
+		.enet_pll_c2_2m5_clk                     (<connected-to-enet_pll_c2_2m5_clk>),                     //                     enet_pll_c2_2m5.clk
+		.enet_pll_c3_125m_shift_clk              (<connected-to-enet_pll_c3_125m_shift_clk>),              //              enet_pll_c3_125m_shift.clk
+		.enet_pll_c4_25m_shift_clk               (<connected-to-enet_pll_c4_25m_shift_clk>),               //               enet_pll_c4_25m_shift.clk
+		.enet_pll_locked_conduit_export          (<connected-to-enet_pll_locked_conduit_export>),          //             enet_pll_locked_conduit.export
+		.eth_tse_mac_mdio_connection_mdc         (<connected-to-eth_tse_mac_mdio_connection_mdc>),         //         eth_tse_mac_mdio_connection.mdc
+		.eth_tse_mac_mdio_connection_mdio_in     (<connected-to-eth_tse_mac_mdio_connection_mdio_in>),     //                                    .mdio_in
+		.eth_tse_mac_mdio_connection_mdio_out    (<connected-to-eth_tse_mac_mdio_connection_mdio_out>),    //                                    .mdio_out
+		.eth_tse_mac_mdio_connection_mdio_oen    (<connected-to-eth_tse_mac_mdio_connection_mdio_oen>),    //                                    .mdio_oen
+		.eth_tse_mac_rgmii_connection_rgmii_in   (<connected-to-eth_tse_mac_rgmii_connection_rgmii_in>),   //        eth_tse_mac_rgmii_connection.rgmii_in
+		.eth_tse_mac_rgmii_connection_rgmii_out  (<connected-to-eth_tse_mac_rgmii_connection_rgmii_out>),  //                                    .rgmii_out
+		.eth_tse_mac_rgmii_connection_rx_control (<connected-to-eth_tse_mac_rgmii_connection_rx_control>), //                                    .rx_control
+		.eth_tse_mac_rgmii_connection_tx_control (<connected-to-eth_tse_mac_rgmii_connection_tx_control>), //                                    .tx_control
+		.eth_tse_mac_status_connection_set_10    (<connected-to-eth_tse_mac_status_connection_set_10>),    //       eth_tse_mac_status_connection.set_10
+		.eth_tse_mac_status_connection_set_1000  (<connected-to-eth_tse_mac_status_connection_set_1000>),  //                                    .set_1000
+		.eth_tse_mac_status_connection_eth_mode  (<connected-to-eth_tse_mac_status_connection_eth_mode>),  //                                    .eth_mode
+		.eth_tse_mac_status_connection_ena_10    (<connected-to-eth_tse_mac_status_connection_ena_10>),    //                                    .ena_10
+		.eth_tse_pcs_mac_rx_clock_connection_clk (<connected-to-eth_tse_pcs_mac_rx_clock_connection_clk>), // eth_tse_pcs_mac_rx_clock_connection.clk
+		.eth_tse_pcs_mac_tx_clock_connection_clk (<connected-to-eth_tse_pcs_mac_tx_clock_connection_clk>), // eth_tse_pcs_mac_tx_clock_connection.clk
+		.hbus_clk_clk                            (<connected-to-hbus_clk_clk>),                            //                            hbus_clk.clk
+		.hbus_reset_reset_n                      (<connected-to-hbus_reset_reset_n>),                      //                          hbus_reset.reset_n
+		.hyperbus_controller_top_HB_RSTn         (<connected-to-hyperbus_controller_top_HB_RSTn>),         //             hyperbus_controller_top.HB_RSTn
+		.hyperbus_controller_top_HB_CLK0         (<connected-to-hyperbus_controller_top_HB_CLK0>),         //                                    .HB_CLK0
+		.hyperbus_controller_top_HB_CLK0n        (<connected-to-hyperbus_controller_top_HB_CLK0n>),        //                                    .HB_CLK0n
+		.hyperbus_controller_top_HB_CLK1         (<connected-to-hyperbus_controller_top_HB_CLK1>),         //                                    .HB_CLK1
+		.hyperbus_controller_top_HB_CLK1n        (<connected-to-hyperbus_controller_top_HB_CLK1n>),        //                                    .HB_CLK1n
+		.hyperbus_controller_top_HB_CS0n         (<connected-to-hyperbus_controller_top_HB_CS0n>),         //                                    .HB_CS0n
+		.hyperbus_controller_top_HB_CS1n         (<connected-to-hyperbus_controller_top_HB_CS1n>),         //                                    .HB_CS1n
+		.hyperbus_controller_top_HB_WPn          (<connected-to-hyperbus_controller_top_HB_WPn>),          //                                    .HB_WPn
+		.hyperbus_controller_top_HB_RWDS         (<connected-to-hyperbus_controller_top_HB_RWDS>),         //                                    .HB_RWDS
+		.hyperbus_controller_top_HB_dq           (<connected-to-hyperbus_controller_top_HB_dq>),           //                                    .HB_dq
+		.hyperbus_controller_top_HB_RSTOn        (<connected-to-hyperbus_controller_top_HB_RSTOn>),        //                                    .HB_RSTOn
+		.hyperbus_controller_top_HB_INTn         (<connected-to-hyperbus_controller_top_HB_INTn>),         //                                    .HB_INTn
+		.led_pio_external_connection_export      (<connected-to-led_pio_external_connection_export>),      //         led_pio_external_connection.export
+		.opencores_i2c_scl_pad_io                (<connected-to-opencores_i2c_scl_pad_io>),                //                       opencores_i2c.scl_pad_io
+		.opencores_i2c_sda_pad_io                (<connected-to-opencores_i2c_sda_pad_io>),                //                                    .sda_pad_io
+		.reset_enet_reset_n                      (<connected-to-reset_enet_reset_n>),                      //                          reset_enet.reset_n
+		.user_dipsw_external_connection_export   (<connected-to-user_dipsw_external_connection_export>),   //      user_dipsw_external_connection.export
+		.user_pb_external_connection_export      (<connected-to-user_pb_external_connection_export>)       //         user_pb_external_connection.export
+	);
+

@@ -1,0 +1,155 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include "includes.h"
+#include "simple_socket_server.h"
+#include "alt_error_handler.h"
+#include "ipport.h"
+#include "tcpport.h"
+#include "libport.h"
+#include "osport.h"
+#include <io.h>
+
+
+#define MAX_CHARS 100
+
+// Endereços dos registradores User_HW
+#define ADDR_CONTROL 0
+#define ADDR_DATA    1
+#define ADDR_READY   2
+#define ADDR_OUTPUT  3
+
+OS_STK    SSSInitialTaskStk[TASK_STACKSIZE];
+
+// ======================================================
+// PROCESSAMENTO NO HARDWARE
+// ======================================================
+unsigned char process_byte(unsigned char byte) {
+
+    IOWR(USERHW_0_BASE, ADDR_DATA, byte);     // envia byte
+    IOWR(USERHW_0_BASE, ADDR_CONTROL, 1);     // start
+
+    while (IORD(USERHW_0_BASE, ADDR_READY) == 0)
+        ; // espera
+
+    unsigned int ans = IORD(USERHW_0_BASE, ADDR_OUTPUT); // recebe
+
+    IOWR(USERHW_0_BASE, ADDR_CONTROL, 0); // limpa start
+
+    return (unsigned char)(ans & 0xFF);
+}
+
+void process_string(unsigned char* input, unsigned char* output, int length) {
+    for (int i = 0; i < length; i++)
+        output[i] = process_byte(input[i]);
+}
+
+// ======================================================
+// SERVIDOR TCP – porta 8080
+// ======================================================
+void tcp_server(void *p) {
+
+    int sock, client;
+    struct sockaddr_in addr, cli;
+    char recv_buffer[MAX_CHARS+1];
+    char send_buffer[MAX_CHARS+1];
+    int bytes;
+    // inicialização do TCP/IP stack
+    alt_iniche_init();
+    netmain();
+
+    // aguarda DHCP pegar IP
+    while (iniche_net_ready == 0) {
+        TK_SLEEP(10);
+    }
+
+    printf("Rede pronta. IP obtido via DHCP.\n");
+
+    sock = socket(AF_INET, SOCK_STREAM, 0);
+    if (sock < 0) {
+        printf("Erro criando socket\n");
+        return;
+    }
+
+    memset(&addr, 0, sizeof(addr));
+    addr.sin_family = AF_INET;
+    addr.sin_port = htons(9090);
+    addr.sin_addr.s_addr = INADDR_ANY;
+
+    if (bind(sock, (struct sockaddr *)&addr, sizeof(addr)) < 0) {
+        printf("bind() falhou\n");
+        close(sock);
+        return;
+    }
+
+    listen(sock, 1);
+    printf("Servidor TCP pronto na porta 8080\n");
+
+    while (1) {
+
+        int cli_len = sizeof(cli);
+        client = accept(sock, (struct sockaddr *)&cli, &cli_len);
+
+        if (client < 0) {
+            printf("Erro no accept\n");
+            continue;
+        }
+
+        printf("Cliente conectado.\n");
+
+        memset(recv_buffer, 0, sizeof(recv_buffer));
+        char* body;
+
+		bytes = recv(client, recv_buffer, sizeof(recv_buffer), 0);
+		body = strstr(recv_buffer, "\r\n\r\n");
+		if(body){
+		  body += 4;
+		}
+
+		if (bytes <= 0) {
+			printf("Cliente desconectou antes de enviar.\n");
+			close(client);
+			continue;
+		}
+
+		printf("Recebido (%d bytes): %s\n", bytes, recv_buffer);
+
+		// Processamento no User_HW
+		process_string((unsigned char*)body,
+					   (unsigned char*)send_buffer,
+					   bytes);
+
+		// Envia de volta para o cliente
+		send(client, send_buffer, bytes, 0);
+
+		printf("Enviado de volta: %s\n", send_buffer);
+
+		close(client);
+    }
+}
+
+// ======================================================
+// MAIN – cria a thread do servidor TCP
+// ======================================================
+int main() {
+	INT8U error_code;
+	OSTimeSet(0);
+    printf("Inicializando sistema...\n");
+
+    // cria thread do servidor TCP
+    error_code = OSTaskCreateExt(tcp_server,
+                               NULL,
+                               (void *)&SSSInitialTaskStk[TASK_STACKSIZE],
+                               SSS_INITIAL_TASK_PRIORITY,
+                               SSS_INITIAL_TASK_PRIORITY,
+                               SSSInitialTaskStk,
+                               TASK_STACKSIZE,
+                               NULL,
+                               0);
+    alt_uCOSIIErrorHandler(error_code, 0);
+    printf("Servidor TCP criado.\n");
+
+    OSStart(); // inicia o MicroC/OS-II
+    while(1);
+    return 0;
+}

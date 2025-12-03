@@ -1,0 +1,186 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include "includes.h"
+#include "simple_socket_server.h"
+#include "alt_error_handler.h"
+#include "ipport.h"
+#include "tcpport.h"
+#include "libport.h"
+#include "osport.h"
+#include <io.h>
+
+OS_STK    SSSInitialTaskStk[TASK_STACKSIZE];
+
+void encrypt_char(char character, char* enc_data){
+	IOWR(USERHW_0_BASE, 1, character);
+	IOWR(USERHW_0_BASE, 2, 17); // ENCRYPTION KEY  ENC = 17
+
+	IOWR(USERHW_0_BASE, 0, 1);
+	int ok = 0;
+	while(!ok){
+		ok |= IORD(USERHW_0_BASE, 0);
+	}
+	IOWR(USERHW_0_BASE, 0, 0);
+
+	unsigned int ans = IORD(USERHW_0_BASE, 1);
+	*(enc_data) = ans/(1<<8);
+	*(enc_data+1) = ans%(1<<8);
+
+	printf("%x\n", ans);
+}
+
+char decrypt_char(char* enc_data){
+	int character = 0;
+	character += ((*enc_data)<<8)+*(enc_data+1);
+	IOWR(USERHW_0_BASE, 1, character);
+	IOWR(USERHW_0_BASE, 2, 413); // ENCRYPTION KEY  DEC = 413
+
+	IOWR(USERHW_0_BASE, 0, 1);
+	int ok = 0;
+	while(!ok){
+		ok |= IORD(USERHW_0_BASE, 0);
+	}
+	IOWR(USERHW_0_BASE, 0, 0);
+
+	int ans = IORD(USERHW_0_BASE, 1);
+	return ans;
+}
+
+void SSSInitialTask(void *task_data)
+{
+  INT8U error_code;
+  alt_iniche_init();
+  netmain(); 
+  while (!iniche_net_ready)
+    TK_SLEEP(1);
+  printf("\nSimple Socket Server starting up\n");
+
+  struct sockaddr_in addr, remote;
+  int fd_listen, fd_remote, len = sizeof(remote);
+
+  if ((fd_listen = socket(AF_INET, SOCK_STREAM, 0)) < 0)
+  {
+    alt_NetworkErrorHandler(EXPANDED_DIAGNOSIS_CODE,"[sss_task] Socket creation failed");
+  }
+
+  addr.sin_family = AF_INET;
+  addr.sin_port = htons(SSS_PORT);
+  addr.sin_addr.s_addr = INADDR_ANY;
+
+  if ((bind(fd_listen,(struct sockaddr *)&addr,sizeof(addr))) < 0)
+  {
+    alt_NetworkErrorHandler(EXPANDED_DIAGNOSIS_CODE,"[sss_task] Bind failed");
+  }
+
+  if ((listen(fd_listen,1)) < 0)
+  {
+    alt_NetworkErrorHandler(EXPANDED_DIAGNOSIS_CODE,"[sss_task] Listen failed");
+  }
+  printf("[sss_task] Simple Socket Server listening on port %d\n", SSS_PORT);
+
+  if((fd_remote=accept(fd_listen,(struct sockaddr*)&remote,&len))<0)
+  {
+	  alt_NetworkErrorHandler(EXPANDED_DIAGNOSIS_CODE,"[sss_handle_accept] accept failed");
+  }
+  printf("[sss_task] Simple Socket Server accepted client\n", SSS_PORT);
+
+  char hder[2123], message[2123];
+  memset(hder, 0, sizeof(hder));
+
+  int header_end = 0, tot_size = 0;
+  while (!header_end){
+	  int bytes = recv(fd_remote, hder+tot_size, sizeof(hder)-tot_size, 0);
+	  tot_size += bytes;
+	  char* newline_pos = strchr(hder, '\n');
+	  if(newline_pos){
+		  header_end = 1;
+	  }
+  }
+  char* newline_pos = strchr(hder, '\n');
+  int header_size = newline_pos-hder+1;
+  int message_size = tot_size - header_size;
+
+  //=======================ENCRYPT
+
+  int byte_size;
+  char file_bytes_str[2123];
+  sscanf(hder, "%d", &byte_size);
+  sprintf(file_bytes_str, "%d\n", 2*byte_size);
+  send(fd_remote, file_bytes_str, strlen(file_bytes_str), 0);
+
+  memcpy(message, newline_pos+1, message_size); // MESSAGE FIRST BUFFER
+  byte_size -= message_size;
+
+  // SET ENCRYPT PARAMS
+  IOWR(USERHW_0_BASE, 3, 3233); // MODULO CONSTANT  MOD = 3233
+
+  //SEND FIRST BATCH
+  char enc_data[2];
+  for(int i = 0; i < message_size; i++){
+	encrypt_char(message[i], enc_data);
+	send(fd_remote, enc_data, 2, 0);
+  }
+
+  while(byte_size > 0){
+	  int bytes = recv(fd_remote, message, sizeof(message), 0);
+	  byte_size -= bytes;
+	  for(int i = 0; i < bytes; i++){
+		encrypt_char(message[i], enc_data);
+		send(fd_remote, enc_data, 2, 0);
+	  }
+  }
+
+  //=======================DECRYPT
+
+//  int byte_size;
+//  char file_bytes_str[2123];
+//  sscanf(hder, "%d", &byte_size);
+//  sprintf(file_bytes_str, "%d\n", byte_size/2);
+//  send(fd_remote, file_bytes_str, strlen(file_bytes_str), 0);
+//
+//  memcpy(message, newline_pos+1, message_size); // MESSAGE FIRST BUFFER
+//  byte_size -= message_size;
+//
+//  // SET ENCRYPT PARAMS
+//  IOWR(USERHW_0_BASE, 3, 3233); // MODULO CONSTANT  MOD = 3233
+//
+//  // SEND FIRST BATCH
+//  int message_in_size = 0;
+//  for(int i = 0; i < message_size/2; i++){
+//	  char dec_data = decrypt_char(message + 2*i);
+//	  send(fd_remote, &dec_data, 1, 0);
+//  }
+//  message_in_size = message_size%2;
+//
+//  while(byte_size > 0){
+//    int bytes = recv(fd_remote, message+message_in_size, sizeof(message)-message_in_size, 0);
+//    byte_size -= bytes;
+//  	for(int i = 0; i < (bytes+message_in_size)/2; i++){
+//  		char dec_data = decrypt_char(message + 2*i);
+//  		send(fd_remote, &dec_data, 1, 0);
+//  	}
+//  	message_in_size = (bytes+message_in_size)%2;
+//  }
+
+  while(1);
+}
+
+int main (int argc, char* argv[], char* envp[])
+{
+  INT8U error_code;
+  OSTimeSet(0);
+  error_code = OSTaskCreateExt(SSSInitialTask,
+                             NULL,
+                             (void *)&SSSInitialTaskStk[TASK_STACKSIZE],
+                             SSS_INITIAL_TASK_PRIORITY,
+                             SSS_INITIAL_TASK_PRIORITY,
+                             SSSInitialTaskStk,
+                             TASK_STACKSIZE,
+                             NULL,
+                             0);
+  alt_uCOSIIErrorHandler(error_code, 0);
+  OSStart();
+  while(1);
+  return -1;
+}

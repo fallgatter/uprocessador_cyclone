@@ -1,0 +1,73 @@
+#include <stdio.h>
+
+#include "includes.h"
+
+#include "simple_socket_server.h"                                                                    
+#include "alt_error_handler.h"
+
+#include "ipport.h"
+#include "libport.h"
+#include "osport.h"
+
+OS_STK    SSSInitialTaskStk[TASK_STACKSIZE];
+
+TK_OBJECT(to_ssstask);
+TK_ENTRY(SSSSimpleSocketServerTask);
+
+struct inet_taskinfo ssstask = {
+      &to_ssstask,
+      "simple socket server",
+      SSSSimpleSocketServerTask,
+      4,
+      APP_STACK_SIZE,
+};
+
+void SSSInitialTask(void *task_data)
+{
+  INT8U error_code;
+  
+  alt_iniche_init();
+  netmain(); 
+
+  while (!iniche_net_ready)
+    TK_SLEEP(1);
+
+  printf("\nSimple Socket Server starting up\n");
+
+  TK_NEWTASK(&ssstask);
+  
+  SSSCreateOSDataStructs(); 
+
+  SSSCreateTasks();
+
+  error_code = OSTaskDel(OS_PRIO_SELF);
+  alt_uCOSIIErrorHandler(error_code, 0);
+  
+  while (1);
+}
+
+int main (int argc, char* argv[], char* envp[])
+{
+  
+  INT8U error_code;
+
+  OSTimeSet(0);
+
+  error_code = OSTaskCreateExt(SSSInitialTask,
+                             NULL,
+                             (void *)&SSSInitialTaskStk[TASK_STACKSIZE],
+                             SSS_INITIAL_TASK_PRIORITY,
+                             SSS_INITIAL_TASK_PRIORITY,
+                             SSSInitialTaskStk,
+                             TASK_STACKSIZE,
+                             NULL,
+                             0);
+  alt_uCOSIIErrorHandler(error_code, 0);
+
+  OSStart();
+
+  
+  while(1);
+
+  return -1;
+}

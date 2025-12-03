@@ -1,0 +1,136 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/FPGAEncrypt/workspace/FPGAEncrypt/obj/default/runtime/sim/mentor
+vq_sys_cpu_cpu
+Z1 !s110 1752358066
+!i10b 1
+!s100 `n:mP6gVJ?mXid=oRhkfC3
+I2MJbB0P:42KhmeC<fI^JF0
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+Z3 w1751929878
+8C:/FPGAEncrypt/q_sys/simulation/submodules/q_sys_cpu_cpu.vo
+FC:/FPGAEncrypt/q_sys/simulation/submodules/q_sys_cpu_cpu.vo
+L0 31
+Z4 OV;L;10.5b;63
+r1
+!s85 0
+31
+!s108 1752358065.000000
+!s107 C:/FPGAEncrypt/q_sys/simulation/submodules/q_sys_cpu_cpu.vo|
+!s90 -reportprogress|300|C:/FPGAEncrypt/q_sys/simulation/submodules/q_sys_cpu_cpu.vo|-work|cpu|
+!i113 1
+Z5 o-work cpu
+Z6 tCvgOpt 0
+vq_sys_cpu_cpu_debug_slave_sysclk
+R1
+!i10b 1
+!s100 enI0WP:W:X=?ja[Lz=jJk2
+ID;agMfCFgALEgagChoL7i3
+R2
+R0
+R3
+8C:/FPGAEncrypt/q_sys/simulation/submodules/q_sys_cpu_cpu_debug_slave_sysclk.v
+FC:/FPGAEncrypt/q_sys/simulation/submodules/q_sys_cpu_cpu_debug_slave_sysclk.v
+Z7 L0 21
+R4
+r1
+!s85 0
+31
+Z8 !s108 1752358066.000000
+!s107 C:/FPGAEncrypt/q_sys/simulation/submodules/q_sys_cpu_cpu_debug_slave_sysclk.v|
+!s90 -reportprogress|300|C:/FPGAEncrypt/q_sys/simulation/submodules/q_sys_cpu_cpu_debug_slave_sysclk.v|-work|cpu|
+!i113 1
+R5
+R6
+vq_sys_cpu_cpu_debug_slave_tck
+R1
+!i10b 1
+!s100 47<F2=]6>:57IR3Y3G?iA2
+IW^SD5[m_G_PF>PjD:1UDF1
+R2
+R0
+R3
+8C:/FPGAEncrypt/q_sys/simulation/submodules/q_sys_cpu_cpu_debug_slave_tck.v
+FC:/FPGAEncrypt/q_sys/simulation/submodules/q_sys_cpu_cpu_debug_slave_tck.v
+R7
+R4
+r1
+!s85 0
+31
+R8
+!s107 C:/FPGAEncrypt/q_sys/simulation/submodules/q_sys_cpu_cpu_debug_slave_tck.v|
+!s90 -reportprogress|300|C:/FPGAEncrypt/q_sys/simulation/submodules/q_sys_cpu_cpu_debug_slave_tck.v|-work|cpu|
+!i113 1
+R5
+R6
+vq_sys_cpu_cpu_debug_slave_wrapper
+R1
+!i10b 1
+!s100 WO_7@K3a8o2aLfZZai8IK2
+IQLVka2@M58lDWLdg]2fIz2
+R2
+R0
+R3
+8C:/FPGAEncrypt/q_sys/simulation/submodules/q_sys_cpu_cpu_debug_slave_wrapper.v
+FC:/FPGAEncrypt/q_sys/simulation/submodules/q_sys_cpu_cpu_debug_slave_wrapper.v
+R7
+R4
+r1
+!s85 0
+31
+R8
+!s107 C:/FPGAEncrypt/q_sys/simulation/submodules/q_sys_cpu_cpu_debug_slave_wrapper.v|
+!s90 -reportprogress|300|C:/FPGAEncrypt/q_sys/simulation/submodules/q_sys_cpu_cpu_debug_slave_wrapper.v|-work|cpu|
+!i113 1
+R5
+R6
+vq_sys_cpu_cpu_mult_cell
+R1
+!i10b 1
+!s100 g8JAR_9VF@@L9Om]A6KOP3
+IffYFX<>3OKOAP<]nWUjeX3
+R2
+R0
+R3
+8C:/FPGAEncrypt/q_sys/simulation/submodules/q_sys_cpu_cpu_mult_cell.v
+FC:/FPGAEncrypt/q_sys/simulation/submodules/q_sys_cpu_cpu_mult_cell.v
+R7
+R4
+r1
+!s85 0
+31
+R8
+!s107 C:/FPGAEncrypt/q_sys/simulation/submodules/q_sys_cpu_cpu_mult_cell.v|
+!s90 -reportprogress|300|C:/FPGAEncrypt/q_sys/simulation/submodules/q_sys_cpu_cpu_mult_cell.v|-work|cpu|
+!i113 1
+R5
+R6
+vq_sys_cpu_cpu_test_bench
+R1
+!i10b 1
+!s100 <FBXQhV]1:NCO?Oe2;>Oc1
+IzDPe@LCdSg84A?YI_Na;[1
+R2
+R0
+R3
+8C:/FPGAEncrypt/q_sys/simulation/submodules/q_sys_cpu_cpu_test_bench.v
+FC:/FPGAEncrypt/q_sys/simulation/submodules/q_sys_cpu_cpu_test_bench.v
+R7
+R4
+r1
+!s85 0
+31
+R8
+!s107 C:/FPGAEncrypt/q_sys/simulation/submodules/q_sys_cpu_cpu_test_bench.v|
+!s90 -reportprogress|300|C:/FPGAEncrypt/q_sys/simulation/submodules/q_sys_cpu_cpu_test_bench.v|-work|cpu|
+!i113 1
+R5
+R6

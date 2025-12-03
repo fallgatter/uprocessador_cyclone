@@ -1,0 +1,161 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include "includes.h"
+#include "simple_socket_server.h"
+#include "alt_error_handler.h"
+#include "ipport.h"
+#include "tcpport.h"
+#include "libport.h"
+#include "osport.h"
+#include <io.h>
+
+OS_STK    SSSInitialTaskStk[TASK_STACKSIZE];
+
+void encrypt_data(char *message, char *response){
+	long long data = 0, data2 = 0;
+	for(int i = 0; i < 4; i++){
+		data2 <<= 8;
+		data2 += message[i];
+	}
+	IOWR(USERHW_0_BASE, 2, data2);
+	for(int i = 4; i < 8; i++){
+		data <<= 8;
+		data += message[i];
+	}
+	IOWR(USERHW_0_BASE, 1, data);
+
+	IOWR(USERHW_0_BASE, 0, 1);
+	int ok = 0;
+	while(!ok){
+		ok |= IORD(USERHW_0_BASE, 0);
+	}
+	IOWR(USERHW_0_BASE, 0, 0);
+	long long uphalf, lowhalf;
+	IORD(USERHW_0_BASE, 1);
+	IORD(USERHW_0_BASE, 2);
+	lowhalf = IORD(USERHW_0_BASE, 1);
+	uphalf = IORD(USERHW_0_BASE, 2);
+	for(int i = 3; i >= 0; i--){
+		response[i] = uphalf%(1<<8);
+		uphalf/=(1<<8);
+	}
+	for(int i = 7; i >= 4; i--){
+		response[i] = lowhalf%(1<<8);
+		lowhalf/=(1<<8);
+	}
+//	for(int i = 0; i < 8; i++) response[i] = message[i]+1;
+//	for(int i = 0; i < 8; i++) printf("%d ", response[i]);
+//	printf("\n");
+}
+
+void SSSInitialTask(void *task_data)
+{
+  INT8U error_code;
+  alt_iniche_init();
+  netmain(); 
+  while (!iniche_net_ready)
+    TK_SLEEP(1);
+  printf("\nSimple Socket Server starting up\n");
+
+  struct sockaddr_in addr, remote;
+  int fd_listen, fd_remote, len = sizeof(remote);
+
+  if ((fd_listen = socket(AF_INET, SOCK_STREAM, 0)) < 0)
+  {
+    alt_NetworkErrorHandler(EXPANDED_DIAGNOSIS_CODE,"[sss_task] Socket creation failed");
+  }
+
+  addr.sin_family = AF_INET;
+  addr.sin_port = htons(SSS_PORT);
+  addr.sin_addr.s_addr = INADDR_ANY;
+
+  if ((bind(fd_listen,(struct sockaddr *)&addr,sizeof(addr))) < 0)
+  {
+    alt_NetworkErrorHandler(EXPANDED_DIAGNOSIS_CODE,"[sss_task] Bind failed");
+  }
+
+  if ((listen(fd_listen,1)) < 0)
+  {
+    alt_NetworkErrorHandler(EXPANDED_DIAGNOSIS_CODE,"[sss_task] Listen failed");
+  }
+  printf("[sss_task] Simple Socket Server listening on port %d\n", SSS_PORT);
+
+  if((fd_remote=accept(fd_listen,(struct sockaddr*)&remote,&len))<0)
+  {
+	  alt_NetworkErrorHandler(EXPANDED_DIAGNOSIS_CODE,"[sss_handle_accept] accept failed");
+  }
+  printf("[sss_task] Simple Socket Server accepted client\n", SSS_PORT);
+
+  char hder[2123], message[2123];
+  memset(hder, 0, sizeof(hder));
+  memset(message, 0, sizeof(message));
+
+  int header_end = 0, tot_size = 0;
+  int byte_size;
+  printf("Begin Process\n");
+  while (!header_end){
+	  int bytes = recv(fd_remote, hder+tot_size, sizeof(hder)-tot_size, 0);
+	  tot_size += bytes;
+	  char* newline_pos = strchr(hder, '\n');
+	  if(newline_pos){
+		  header_end = 1;
+	  }
+  }
+
+  char* newline_pos = strchr(hder, '\n');
+  int message_size = tot_size - (newline_pos+1-hder);
+
+  char file_bytes_str[2123];
+  memset(file_bytes_str, 0, sizeof(file_bytes_str));
+  memcpy(file_bytes_str, hder, newline_pos-hder);
+  sscanf(file_bytes_str, "%d", &byte_size);
+  sprintf(file_bytes_str, "%d\n", byte_size);
+  send(fd_remote, file_bytes_str, strlen(file_bytes_str), 0);
+
+  memcpy(message, newline_pos+2, message_size); // MESSAGE FIRST BUFFER
+  byte_size -= message_size;
+
+  // SET ENCRYPT PARAMS
+  IOWR(USERHW_0_BASE, 0, 0); // CONTROL FLAG
+  IOWR(USERHW_0_BASE, 1, 17); // ENCRYPTION KEY  ENC = 17 DEC = 413 MOD = 3233
+  IOWR(USERHW_0_BASE, 2, 17); // ENCRYPTION KEY  ENC = 17 DEC = 413 MOD = 3233
+  IOWR(USERHW_0_BASE, 1, 17); // ENCRYPTION KEY  ENC = 17 DEC = 413 MOD = 3233
+
+
+  while(byte_size > 0){
+	  int bytes = recv(fd_remote, message+message_size, sizeof(message)-message_size, 0);
+	  byte_size -= bytes;
+	  message_size += bytes;
+	  int blocks = message_size/8;
+	  for(int i = 0; i < blocks; i++){
+		  encrypt_data(message+i*8, response);
+		  send(fd_remote, response, 8, 0);
+	  }
+	  message_size %= 8;
+	  memcpy(message, message+blocks*8, message_size);
+  }
+  encrypt_data(message, response);
+  send(fd_remote, response, 8, 0);
+
+  while(1);
+}
+
+int main (int argc, char* argv[], char* envp[])
+{
+  INT8U error_code;
+  OSTimeSet(0);
+  error_code = OSTaskCreateExt(SSSInitialTask,
+                             NULL,
+                             (void *)&SSSInitialTaskStk[TASK_STACKSIZE],
+                             SSS_INITIAL_TASK_PRIORITY,
+                             SSS_INITIAL_TASK_PRIORITY,
+                             SSSInitialTaskStk,
+                             TASK_STACKSIZE,
+                             NULL,
+                             0);
+  alt_uCOSIIErrorHandler(error_code, 0);
+  OSStart();
+  while(1);
+  return -1;
+}

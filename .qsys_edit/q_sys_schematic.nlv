@@ -1,0 +1,90 @@
+# # File gsaved with Nlview version 6.3.8  2013-12-19 bk=1.2992 VDI=34 GEI=35
+# 
+preplace inst q_sys.remote_update.remote_update_controller -pg 1
+preplace inst q_sys.remote_update -pg 1 -lvl 5 -y 1320
+preplace inst q_sys.onchip_ram -pg 1 -lvl 5 -y 550
+preplace inst q_sys.ext_epcq_flash.asmi2_inst_epcq_ctrl.csr_controller -pg 1
+preplace inst q_sys.ext_epcq_flash.clk -pg 1
+preplace inst q_sys.cpu.cpu -pg 1
+preplace inst q_sys.msgdma_tx.dispatcher_internal -pg 1
+preplace inst q_sys.mm_bridge_0 -pg 1 -lvl 1 -y 290
+preplace inst q_sys.remote_update.remote_update_core -pg 1
+preplace inst q_sys.msgdma_tx -pg 1 -lvl 1 -y 80
+preplace inst q_sys.msgdma_rx.prefetcher_internal -pg 1
+preplace inst q_sys.msgdma_rx.rst_inst -pg 1
+preplace inst q_sys.jtag_uart -pg 1 -lvl 5 -y 270
+preplace inst q_sys.cpu -pg 1 -lvl 5 -y 120
+preplace inst q_sys.sys_clk_timer -pg 1 -lvl 5 -y 370
+preplace inst q_sys.ext_epcq_flash.reset -pg 1
+preplace inst q_sys.clock_bridge_0 -pg 1 -lvl 4 -y 1200
+preplace inst q_sys.sll_hyperbus_controller_top_0 -pg 1 -lvl 4 -y 670
+preplace inst q_sys.msgdma_tx.cb_inst -pg 1
+preplace inst q_sys.msgdma_rx.dispatcher_internal -pg 1
+preplace inst q_sys.ext_epcq_flash.addr_adaption_0 -pg 1
+preplace inst q_sys.cpu.clock_bridge -pg 1
+preplace inst q_sys.remote_update.clk_bridge -pg 1
+preplace inst q_sys.msgdma_rx -pg 1 -lvl 3 -y 540
+preplace inst q_sys.led_pio -pg 1 -lvl 5 -y 710
+preplace inst q_sys.ext_epcq_flash.asmi2_inst_epcq_ctrl.multiplexer -pg 1
+preplace inst q_sys.eth_tse.i_tse_mac -pg 1
+preplace inst q_sys.user_pb -pg 1 -lvl 5 -y 910
+preplace inst q_sys.msgdma_tx.rst_inst -pg 1
+preplace inst q_sys.ext_epcq_flash.asmi2_inst_epcq_ctrl.asmi2_cmd_generator_0 -pg 1
+preplace inst q_sys.ext_epcq_flash.asmi2_inst_epcq_ctrl.reset_bridge -pg 1
+preplace inst q_sys.opencores_i2c_0 -pg 1 -lvl 5 -y 1010
+preplace inst q_sys.msgdma_rx.cb_inst -pg 1
+preplace inst q_sys.enet_clk_125m -pg 1 -lvl 4 -y 1440
+preplace inst q_sys.ext_epcq_flash.asmi2_inst_epcq_ctrl.asmi2_qspi_interface_0 -pg 1
+preplace inst q_sys.ext_epcq_flash.asmi2_inst_epcq_ctrl.merlin_demultiplexer_0 -pg 1
+preplace inst q_sys.descriptor_memory -pg 1 -lvl 5 -y 470
+preplace inst q_sys.remote_update.reset_bridge -pg 1
+preplace inst q_sys.ext_epcq_flash.asmi2_inst_epcq_ctrl.xip_controller -pg 1
+preplace inst q_sys.ext_epcq_flash.asmi2_inst_epcq_ctrl -pg 1
+preplace inst q_sys.hbus_clk -pg 1 -lvl 3 -y 850
+preplace inst q_sys.eth_tse -pg 1 -lvl 2 -y 290
+preplace inst q_sys.cpu.reset_bridge -pg 1
+preplace inst q_sys -pg 1 -lvl 1 -y 40 -regy -20
+preplace inst q_sys.user_dipsw -pg 1 -lvl 5 -y 810
+preplace inst q_sys.msgdma_tx.read_mstr_internal -pg 1
+preplace inst q_sys.msgdma_tx.prefetcher_internal -pg 1
+preplace inst q_sys.msgdma_rx.write_mstr_internal -pg 1
+preplace inst q_sys.ext_epcq_flash.asmi2_inst_epcq_ctrl.clk_bridge -pg 1
+preplace inst q_sys.ext_epcq_flash -pg 1 -lvl 5 -y 1160
+preplace inst q_sys.enet_pll -pg 1 -lvl 5 -y 1420
+preplace inst q_sys.sysid -pg 1 -lvl 5 -y 630
+preplace netloc EXPORT<net_container>q_sys</net_container>(MASTER)enet_pll.c4,(MASTER)q_sys.enet_pll_c4_25m_shift) 1 5 1 NJ
+preplace netloc EXPORT<net_container>q_sys</net_container>(MASTER)q_sys.enet_pll_c1_25m,(MASTER)enet_pll.c1) 1 5 1 NJ
+preplace netloc EXPORT<net_container>q_sys</net_container>(SLAVE)enet_pll.areset_conduit,(SLAVE)q_sys.enet_pll_areset_conduit) 1 0 5 NJ 1430 NJ 1430 NJ 1430 NJ 1430 NJ
+preplace netloc EXPORT<net_container>q_sys</net_container>(SLAVE)q_sys.user_dipsw_external_connection,(SLAVE)user_dipsw.external_connection) 1 0 5 NJ 840 NJ 840 NJ 840 NJ 840 NJ
+preplace netloc POINT_TO_POINT<net_container>q_sys</net_container>(SLAVE)sll_hyperbus_controller_top_0.in_clk,(MASTER)hbus_clk.clk) 1 3 1 1540
+preplace netloc FAN_OUT<net_container>q_sys</net_container>(SLAVE)ext_epcq_flash.reset,(MASTER)hbus_clk.clk_reset,(SLAVE)remote_update.reset,(SLAVE)sll_hyperbus_controller_top_0.i_ext_rstn) 1 3 2 1500 980 1790
+preplace netloc POINT_TO_POINT<net_container>q_sys</net_container>(MASTER)enet_clk_125m.clk,(SLAVE)enet_pll.inclk_interface) 1 4 1 N
+preplace netloc EXPORT<net_container>q_sys</net_container>(SLAVE)eth_tse.mac_mdio_connection,(SLAVE)q_sys.eth_tse_mac_mdio_connection) 1 0 2 NJ 40 NJ
+preplace netloc EXPORT<net_container>q_sys</net_container>(SLAVE)q_sys.eth_tse_mac_status_connection,(SLAVE)eth_tse.mac_status_connection) 1 0 2 NJ 400 NJ
+preplace netloc FAN_OUT<net_container>q_sys</net_container>(SLAVE)cpu.clk,(SLAVE)sys_clk_timer.clk,(SLAVE)led_pio.clk,(SLAVE)msgdma_rx.clock,(SLAVE)jtag_uart.clk,(SLAVE)user_pb.clk,(MASTER)sll_hyperbus_controller_top_0.o_av_out_clk,(SLAVE)opencores_i2c_0.clock,(SLAVE)sysid.clk,(SLAVE)user_dipsw.clk,(SLAVE)onchip_ram.clk1,(SLAVE)msgdma_tx.clock,(SLAVE)eth_tse.receive_clock_connection,(SLAVE)eth_tse.transmit_clock_connection,(SLAVE)sll_hyperbus_controller_top_0.i_iavs0_clk,(SLAVE)descriptor_memory.clk1,(SLAVE)mm_bridge_0.clk,(SLAVE)eth_tse.control_port_clock_connection) 1 0 5 230 260 640 590 1090 720 1560 860 1910
+preplace netloc EXPORT<net_container>q_sys</net_container>(MASTER)enet_pll.c2,(MASTER)q_sys.enet_pll_c2_2m5) 1 5 1 NJ
+preplace netloc EXPORT<net_container>q_sys</net_container>(MASTER)enet_pll.c3,(MASTER)q_sys.enet_pll_c3_125m_shift) 1 5 1 NJ
+preplace netloc POINT_TO_POINT<net_container>q_sys</net_container>(SLAVE)msgdma_rx.st_sink,(MASTER)eth_tse.receive) 1 2 1 1030
+preplace netloc EXPORT<net_container>q_sys</net_container>(SLAVE)q_sys.led_pio_external_connection,(SLAVE)led_pio.external_connection) 1 0 5 NJ 820 NJ 820 NJ 820 NJ 820 NJ
+preplace netloc FAN_OUT<net_container>q_sys</net_container>(MASTER)cpu.irq,(SLAVE)msgdma_rx.csr_irq,(SLAVE)jtag_uart.irq,(SLAVE)sys_clk_timer.irq,(SLAVE)msgdma_tx.csr_irq) 1 0 6 290 220 NJ 220 1110 260 NJ 260 1890 260 2270
+preplace netloc EXPORT<net_container>q_sys</net_container>(SLAVE)opencores_i2c_0.export_0,(SLAVE)q_sys.opencores_i2c) 1 0 5 NJ 920 NJ 920 NJ 920 NJ 920 NJ
+preplace netloc INTERCONNECT<net_container>q_sys</net_container>(SLAVE)opencores_i2c_0.avalon_slave_0,(SLAVE)msgdma_rx.prefetcher_csr,(SLAVE)sysid.control_slave,(SLAVE)msgdma_rx.csr,(SLAVE)eth_tse.control_port,(SLAVE)led_pio.s1,(MASTER)msgdma_tx.descriptor_read_master,(SLAVE)user_pb.s1,(SLAVE)sys_clk_timer.s1,(MASTER)msgdma_rx.descriptor_read_master,(SLAVE)msgdma_tx.prefetcher_csr,(MASTER)msgdma_tx.descriptor_write_master,(MASTER)mm_bridge_0.m0,(SLAVE)jtag_uart.avalon_jtag_slave,(SLAVE)msgdma_tx.csr,(MASTER)msgdma_rx.descriptor_write_master,(SLAVE)user_dipsw.s1,(SLAVE)descriptor_memory.s1) 1 0 5 270 240 620 610 1070 480 1440 590 1830
+preplace netloc EXPORT<net_container>q_sys</net_container>(SLAVE)q_sys.eth_tse_mac_rgmii_connection,(SLAVE)eth_tse.mac_rgmii_connection) 1 0 2 NJ 380 NJ
+preplace netloc EXPORT<net_container>q_sys</net_container>(SLAVE)eth_tse.pcs_mac_tx_clock_connection,(SLAVE)q_sys.eth_tse_pcs_mac_tx_clock_connection) 1 0 2 NJ 440 NJ
+preplace netloc EXPORT<net_container>q_sys</net_container>(SLAVE)q_sys.user_pb_external_connection,(SLAVE)user_pb.external_connection) 1 0 5 NJ 940 NJ 940 NJ 940 NJ 940 NJ
+preplace netloc INTERCONNECT<net_container>q_sys</net_container>(SLAVE)ext_epcq_flash.avl_mem,(SLAVE)sll_hyperbus_controller_top_0.iavs0,(MASTER)cpu.data_master,(SLAVE)onchip_ram.s1,(SLAVE)remote_update.avl_csr,(MASTER)msgdma_tx.mm_read,(MASTER)cpu.instruction_master,(MASTER)msgdma_rx.mm_write,(SLAVE)ext_epcq_flash.avl_csr,(SLAVE)cpu.debug_mem_slave,(SLAVE)mm_bridge_0.s0) 1 0 6 290 280 680 570 NJ 500 1460 960 1850 60 2290
+preplace netloc POINT_TO_POINT<net_container>q_sys</net_container>(SLAVE)enet_pll.inclk_interface_reset,(MASTER)enet_clk_125m.clk_reset) 1 4 1 N
+preplace netloc EXPORT<net_container>q_sys</net_container>(SLAVE)hbus_clk.clk_in,(SLAVE)q_sys.hbus_clk) 1 0 3 NJ 860 NJ 860 NJ
+preplace netloc EXPORT<net_container>q_sys</net_container>(SLAVE)q_sys.hyperbus_controller_top,(SLAVE)sll_hyperbus_controller_top_0.Conduit_IO) 1 0 4 NJ 700 NJ 700 NJ 700 NJ
+preplace netloc EXPORT<net_container>q_sys</net_container>(SLAVE)hbus_clk.clk_in_reset,(SLAVE)q_sys.hbus_reset) 1 0 3 NJ 880 NJ 880 NJ
+preplace netloc EXPORT<net_container>q_sys</net_container>(SLAVE)enet_clk_125m.clk_in,(SLAVE)q_sys.enet_clk_125m_in) 1 0 4 NJ 1450 NJ 1450 NJ 1450 NJ
+preplace netloc EXPORT<net_container>q_sys</net_container>(SLAVE)q_sys.eth_tse_pcs_mac_rx_clock_connection,(SLAVE)eth_tse.pcs_mac_rx_clock_connection) 1 0 2 NJ 420 NJ
+preplace netloc EXPORT<net_container>q_sys</net_container>(SLAVE)clock_bridge_0.in_clk,(SLAVE)q_sys.clock_bridge_0_in_clk) 1 0 4 NJ 1210 NJ 1210 NJ 1210 NJ
+preplace netloc FAN_OUT<net_container>q_sys</net_container>(SLAVE)remote_update.clock,(MASTER)clock_bridge_0.out_clk,(SLAVE)ext_epcq_flash.clock_sink) 1 4 1 1830
+preplace netloc POINT_TO_POINT<net_container>q_sys</net_container>(SLAVE)eth_tse.transmit,(MASTER)msgdma_tx.st_source) 1 1 1 660
+preplace netloc EXPORT<net_container>q_sys</net_container>(SLAVE)q_sys.reset_enet,(SLAVE)enet_clk_125m.clk_in_reset) 1 0 4 NJ 1470 NJ 1470 NJ 1470 NJ
+preplace netloc INTERCONNECT<net_container>q_sys</net_container>(SLAVE)sys_clk_timer.reset,(SLAVE)eth_tse.reset_connection,(SLAVE)cpu.reset,(MASTER)sll_hyperbus_controller_top_0.o_av_out_rstn,(SLAVE)onchip_ram.reset1,(SLAVE)mm_bridge_0.reset,(SLAVE)jtag_uart.reset,(SLAVE)descriptor_memory.reset1,(SLAVE)opencores_i2c_0.clock_reset,(SLAVE)sll_hyperbus_controller_top_0.i_iavs0_rstn,(SLAVE)user_pb.reset,(MASTER)cpu.debug_reset_request,(SLAVE)user_dipsw.reset,(SLAVE)msgdma_tx.reset_n,(SLAVE)msgdma_rx.reset_n,(SLAVE)sysid.reset,(SLAVE)led_pio.reset) 1 0 6 250 480 700 630 1050 740 1520 880 1870 80 2270
+preplace netloc EXPORT<net_container>q_sys</net_container>(MASTER)q_sys.enet_pll_c0_125m,(MASTER)enet_pll.c0) 1 5 1 NJ
+preplace netloc EXPORT<net_container>q_sys</net_container>(SLAVE)enet_pll.locked_conduit,(SLAVE)q_sys.enet_pll_locked_conduit) 1 0 5 NJ 1510 NJ 1510 NJ 1510 NJ 1510 NJ
+levelinfo -pg 1 0 200 2480
+levelinfo -hier q_sys 210 400 900 1220 1590 2030 2310

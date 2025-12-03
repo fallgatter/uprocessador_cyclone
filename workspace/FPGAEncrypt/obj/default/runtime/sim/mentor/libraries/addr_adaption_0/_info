@@ -1,0 +1,58 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/FPGAEncrypt/workspace/FPGAEncrypt/obj/default/runtime/sim/mentor
+valtera_qspi_address_adaption
+Z1 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
+!s110 1752358020
+!i10b 1
+!s100 KoVSDM=h^Uh<PPHdZc[o`0
+IfDY3_ek;[<ac>UKSBJbb>1
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+!s105 altera_qspi_address_adaption_sv_unit
+S1
+R0
+Z3 w1751929882
+8C:/FPGAEncrypt/q_sys/simulation/submodules/altera_qspi_address_adaption.sv
+FC:/FPGAEncrypt/q_sys/simulation/submodules/altera_qspi_address_adaption.sv
+L0 16
+Z4 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z5 !s108 1752358020.000000
+!s107 C:/FPGAEncrypt/q_sys/simulation/submodules/altera_qspi_address_adaption.sv|
+!s90 -reportprogress|300|-sv|C:/FPGAEncrypt/q_sys/simulation/submodules/altera_qspi_address_adaption.sv|-work|addr_adaption_0|
+!i113 1
+Z6 o-sv -work addr_adaption_0
+Z7 tCvgOpt 0
+valtera_qspi_address_adaption_core
+R1
+!s110 1752358021
+!i10b 1
+!s100 CXk_XkM:F79`Od5W>]>O00
+I0NLTbJ6PJG5clI]IlkeDz1
+R2
+!s105 altera_qspi_address_adaption_core_sv_unit
+S1
+R0
+R3
+8C:/FPGAEncrypt/q_sys/simulation/submodules/altera_qspi_address_adaption_core.sv
+FC:/FPGAEncrypt/q_sys/simulation/submodules/altera_qspi_address_adaption_core.sv
+L0 21
+R4
+r1
+!s85 0
+31
+R5
+!s107 C:/FPGAEncrypt/q_sys/simulation/submodules/altera_qspi_address_adaption_core.sv|
+!s90 -reportprogress|300|-sv|C:/FPGAEncrypt/q_sys/simulation/submodules/altera_qspi_address_adaption_core.sv|-work|addr_adaption_0|
+!i113 1
+R6
+R7

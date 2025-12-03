@@ -1,0 +1,67 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include "includes.h"
+#include "simple_socket_server.h"
+#include "alt_error_handler.h"
+#include "ipport.h"
+#include "tcpport.h"
+#include "libport.h"
+#include "osport.h"
+#include <io.h>
+
+#define MAX_CHARS 100
+
+// Endereços de registradores
+#define ADDR_CONTROL 0    // start
+#define ADDR_DATA    1    // data_in
+#define ADDR_READY   2    // ready
+#define ADDR_OUTPUT  3    // data_out
+
+// Envia um byte para o User_HW e recebe processado
+unsigned char process_byte(unsigned char byte) {
+    // escreve dado
+    IOWR(USERHW_0_BASE, ADDR_DATA, byte);
+
+    // seta start
+    IOWR(USERHW_0_BASE, ADDR_CONTROL, 1);
+    printf("pré-while");
+    // espera ready
+    while(IORD(USERHW_0_BASE, ADDR_READY) == 0);
+    printf("pós-while");
+    // lê resultado
+    unsigned int ans = IORD(USERHW_0_BASE, ADDR_OUTPUT);
+
+    // limpa start
+    IOWR(USERHW_0_BASE, ADDR_CONTROL, 0);
+
+    return (unsigned char)(ans & 0xFF);
+}
+
+// Processa uma string de até MAX_CHARS
+void process_string(unsigned char* input, unsigned char* output, int length) {
+    for(int i = 0; i < length; i++) {
+        output[i] = process_byte(input[i]);
+    }
+}
+
+int main() {
+    unsigned char input[MAX_CHARS] = "Exemplo de teste com ASCII F7 \xF7 fim.";
+    unsigned char output[MAX_CHARS] = {0};
+    int len = strlen((char*)input);
+
+    if(len > MAX_CHARS) len = MAX_CHARS;
+
+    printf("Entrada : %s\n", input);
+    process_string(input, output, len);
+
+
+    printf("Saida   : ");
+    for(int i=0;i<len;i++){
+        printf("%c", output[i]);
+    }
+    printf("\n");
+
+    return 0;
+}
+
