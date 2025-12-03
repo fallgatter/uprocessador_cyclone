@@ -7,13 +7,13 @@ entity ram_ext is
         clk      : in std_logic;
         endereco : in unsigned(6 downto 0);
         wr_en    : in std_logic;
-        dado_in  : in unsigned(15 downto 0);
-        dado_out : out unsigned(15 downto 0) 
+        dado_in  : in unsigned(16 downto 0);
+        dado_out : out unsigned(16 downto 0) 
     );
 end entity;
 
 architecture a_ram of ram_ext is
-    type mem is array (0 to 127) of unsigned(15 downto 0);
+    type mem is array (0 to 127) of unsigned(16 downto 0);
     signal conteudo_ram : mem;
 begin
     process(clk,wr_en)
