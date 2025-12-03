@@ -22,15 +22,29 @@ architecture userhw_arch of userhw is
 			data_out : out std_logic_vector(31 downto 0)
 		);
 	end component;
-
+	component processador is
+		port(
+			clk, reset : in std_logic;
+			inst : in unsigned(16 downto 0) := (others => '0';
+			state_now : out unsigned(1 downto 0) := (others => '0')	
+		);
+	component ram_ext is
+		port(
+			clk : in std_logic;
+			endereco : in unsigned(6 downto 0);
+			wr_en : in std_logic;
+			dado_in : in unsigned(15 downto 0);
+			dado_out : out unsigned(15 downto 0)
+		);
+		
 	signal wren_c, wren_d : std_logic;
 
 	signal con_out  : std_logic_vector(31 downto 0);
 	signal data_d   : std_logic_vector(31 downto 0);
 	signal data_out : std_logic_vector(31 downto 0);
-
+	signal ram_data_out : std_logic_vector(16 downto 0);
 	signal data_ready : std_logic := '0';
-
+	signal current_state : std_logic_vector(1 downto 0);
 begin
 
 	wren_c <= '1' when (address = "000" and write = '1') else '0';
@@ -53,7 +67,21 @@ begin
 			data_in => writedata,
 			data_out => data_d
 		);
-
+	up : processador
+		port map(
+			clk => clk,
+			reset => rst,
+			inst => ram_data_out,
+			state_now => current_state
+		);
+	ram : ram_ext
+		port map(
+			clk => clk,
+			endereco => "0000000", -- Colocar PC aqui
+			wr_en => '0', -- Tem que construir essa lógica aqui
+			dado_in => data_d,
+			dado_out => ram_data_out
+		);
 
 	process(clk)
 	begin
