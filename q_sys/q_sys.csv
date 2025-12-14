@@ -1,12 +1,12 @@
-# system info q_sys on 2025.07.07.20:11:23
+# system info q_sys on 2025.12.10.12:22:28
 system_info:
 name,value
 DEVICE,10CL025YU256I7G
 DEVICE_FAMILY,Cyclone 10 LP
-GENERATION_ID,1751929783
+GENERATION_ID,1765376487
 #
 #
-# Files generated for q_sys on 2025.07.07.20:11:23
+# Files generated for q_sys on 2025.12.10.12:22:28
 files:
 filepath,kind,attributes,module,is_top
 simulation/q_sys.vhd,VHDL,,q_sys,true
@@ -14,17 +14,17 @@ simulation/q_sys_rst_controller.vhd,VHDL,,q_sys,false
 simulation/q_sys_rst_controller_001.vhd,VHDL,,q_sys,false
 simulation/submodules/q_sys_cpu.v,VERILOG,,q_sys_cpu,false
 simulation/submodules/q_sys_descriptor_memory.hex,HEX,,q_sys_descriptor_memory,false
-simulation/submodules/q_sys_descriptor_memory.v,VERILOG,,q_sys_descriptor_memory,false
+simulation/submodules/q_sys_descriptor_memory.vhd,VHDL,,q_sys_descriptor_memory,false
 simulation/submodules/q_sys_enet_pll.vho,VHDL,,q_sys_enet_pll,false
 simulation/submodules/q_sys_eth_tse.vhd,VHDL,,q_sys_eth_tse,false
 simulation/submodules/q_sys_ext_epcq_flash.vhd,VHDL,,q_sys_ext_epcq_flash,false
-simulation/submodules/q_sys_jtag_uart.v,VERILOG,,q_sys_jtag_uart,false
-simulation/submodules/q_sys_led_pio.v,VERILOG,,q_sys_led_pio,false
+simulation/submodules/q_sys_jtag_uart.vhd,VHDL,,q_sys_jtag_uart,false
+simulation/submodules/q_sys_led_pio.vhd,VHDL,,q_sys_led_pio,false
 simulation/submodules/altera_avalon_mm_bridge.v,VERILOG,,altera_avalon_mm_bridge,false
-simulation/submodules/q_sys_msgdma_rx.v,VERILOG,,q_sys_msgdma_rx,false
-simulation/submodules/q_sys_msgdma_tx.v,VERILOG,,q_sys_msgdma_tx,false
+simulation/submodules/q_sys_msgdma_rx.vhd,VHDL,,q_sys_msgdma_rx,false
+simulation/submodules/q_sys_msgdma_tx.vhd,VHDL,,q_sys_msgdma_tx,false
 simulation/submodules/q_sys_onchip_ram.hex,HEX,,q_sys_onchip_ram,false
-simulation/submodules/q_sys_onchip_ram.v,VERILOG,,q_sys_onchip_ram,false
+simulation/submodules/q_sys_onchip_ram.vhd,VHDL,,q_sys_onchip_ram,false
 simulation/submodules/opencores_i2c.v,VERILOG,,opencores_i2c,false
 simulation/submodules/i2c_master_bit_ctrl.v,VERILOG,,opencores_i2c,false
 simulation/submodules/i2c_master_byte_ctrl.v,VERILOG,,opencores_i2c,false
@@ -33,9 +33,9 @@ simulation/submodules/i2c_master_top.v,VERILOG,,opencores_i2c,false
 simulation/submodules/timescale.v,VERILOG,,opencores_i2c,false
 simulation/submodules/q_sys_remote_update.v,VERILOG,,q_sys_remote_update,false
 simulation/submodules/altera_gpio_lite.sv,VERILOG,,sll_hyperbus_controller_top,false
-simulation/submodules/q_sys_sys_clk_timer.v,VERILOG,,q_sys_sys_clk_timer,false
+simulation/submodules/q_sys_sys_clk_timer.vhd,VHDL,,q_sys_sys_clk_timer,false
 simulation/submodules/q_sys_sysid.v,VERILOG,,q_sys_sysid,false
-simulation/submodules/q_sys_user_dipsw.v,VERILOG,,q_sys_user_dipsw,false
+simulation/submodules/q_sys_user_dipsw.vhd,VHDL,,q_sys_user_dipsw,false
 simulation/submodules/userhw.vhd,VHDL,,userhw,false
 simulation/submodules/q_sys_mm_interconnect_0.v,VERILOG,,q_sys_mm_interconnect_0,false
 simulation/submodules/q_sys_mm_interconnect_1.v,VERILOG,,q_sys_mm_interconnect_1,false

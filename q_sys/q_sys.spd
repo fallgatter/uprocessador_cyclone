@@ -1673,16 +1673,16 @@
    type="VHDL"
    library="userhw_0" />
  <file
-   path="simulation/submodules/q_sys_user_dipsw.v"
-   type="VERILOG"
+   path="simulation/submodules/q_sys_user_dipsw.vhd"
+   type="VHDL"
    library="user_dipsw" />
  <file
    path="simulation/submodules/q_sys_sysid.v"
    type="VERILOG"
    library="sysid" />
  <file
-   path="simulation/submodules/q_sys_sys_clk_timer.v"
-   type="VERILOG"
+   path="simulation/submodules/q_sys_sys_clk_timer.vhd"
+   type="VHDL"
    library="sys_clk_timer" />
  <file
    path="simulation/submodules/altera_gpio_lite.sv"
@@ -1721,28 +1721,28 @@
    type="HEX"
    library="onchip_ram" />
  <file
-   path="simulation/submodules/q_sys_onchip_ram.v"
-   type="VERILOG"
+   path="simulation/submodules/q_sys_onchip_ram.vhd"
+   type="VHDL"
    library="onchip_ram" />
  <file
-   path="simulation/submodules/q_sys_msgdma_tx.v"
-   type="VERILOG"
+   path="simulation/submodules/q_sys_msgdma_tx.vhd"
+   type="VHDL"
    library="msgdma_tx" />
  <file
-   path="simulation/submodules/q_sys_msgdma_rx.v"
-   type="VERILOG"
+   path="simulation/submodules/q_sys_msgdma_rx.vhd"
+   type="VHDL"
    library="msgdma_rx" />
  <file
    path="simulation/submodules/altera_avalon_mm_bridge.v"
    type="VERILOG"
    library="mm_bridge_0" />
  <file
-   path="simulation/submodules/q_sys_led_pio.v"
-   type="VERILOG"
+   path="simulation/submodules/q_sys_led_pio.vhd"
+   type="VHDL"
    library="led_pio" />
  <file
-   path="simulation/submodules/q_sys_jtag_uart.v"
-   type="VERILOG"
+   path="simulation/submodules/q_sys_jtag_uart.vhd"
+   type="VHDL"
    library="jtag_uart" />
  <file
    path="simulation/submodules/q_sys_ext_epcq_flash.vhd"
@@ -1761,8 +1761,8 @@
    type="HEX"
    library="descriptor_memory" />
  <file
-   path="simulation/submodules/q_sys_descriptor_memory.v"
-   type="VERILOG"
+   path="simulation/submodules/q_sys_descriptor_memory.vhd"
+   type="VHDL"
    library="descriptor_memory" />
  <file path="simulation/submodules/q_sys_cpu.v" type="VERILOG" library="cpu" />
  <file path="simulation/q_sys.vhd" type="VHDL" />

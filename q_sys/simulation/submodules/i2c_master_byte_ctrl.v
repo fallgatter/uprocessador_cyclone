@@ -73,7 +73,7 @@
 `include "i2c_master_defines.v"
 
 module i2c_master_byte_ctrl #(
-	CLK_CNT_WIDTH = 16
+	parameter CLK_CNT_WIDTH = 16
 ) (
 	clk, rst, nReset, ena, clk_cnt, start, stop, read, write, ack_in, din,
 	cmd_ack, ack_out, dout, i2c_busy, i2c_al, scl_i, scl_o, scl_oen, sda_i, sda_o, sda_oen );

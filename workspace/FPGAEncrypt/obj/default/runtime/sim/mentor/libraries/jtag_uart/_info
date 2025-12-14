@@ -8,3 +8,242 @@ z2
 !i10f 100
 cModel Technology
 dC:/FPGAEncrypt/workspace/FPGAEncrypt/obj/default/runtime/sim/mentor
+Eq_sys_jtag_uart
+Z0 w1765376508
+Z1 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
+Z2 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
+Z3 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+Z4 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z5 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+Z6 DPx6 altera 25 altera_europa_support_lib 0 22 C0c:iN^HNdl8^07`ST5U^3
+Z7 dC:/vhdl/projetofinal/uprocessador_cyclone/workspace/FPGAEncrypt/obj/default/runtime/sim/mentor
+Z8 8C:/vhdl/projetofinal/uprocessador_cyclone/q_sys/simulation/submodules/q_sys_jtag_uart.vhd
+Z9 FC:/vhdl/projetofinal/uprocessador_cyclone/q_sys/simulation/submodules/q_sys_jtag_uart.vhd
+l0
+L455
+VYb?IEncdZJV[oZ?75I8?B3
+!s100 OdK18FkHVBE82]E<5;Me[0
+Z10 OV;C;10.5b;63
+32
+Z11 !s110 1765382633
+!i10b 1
+Z12 !s108 1765382632.000000
+Z13 !s90 -reportprogress|300|C:/vhdl/projetofinal/uprocessador_cyclone/q_sys/simulation/submodules/q_sys_jtag_uart.vhd|-work|jtag_uart|
+Z14 !s107 C:/vhdl/projetofinal/uprocessador_cyclone/q_sys/simulation/submodules/q_sys_jtag_uart.vhd|
+!i113 1
+Z15 o-work jtag_uart
+Z16 tExplicit 1 CvgOpt 0
+Aeuropa
+R1
+R2
+R3
+R4
+R5
+R6
+DEx4 work 15 q_sys_jtag_uart 0 22 Yb?IEncdZJV[oZ?75I8?B3
+l573
+L478
+V=PPMj7@n47T>>Rd8O@gc32
+!s100 O=^@WBJAOjAn8T5zlo6=:3
+R10
+32
+R11
+!i10b 1
+R12
+R13
+R14
+!i113 1
+R15
+R16
+Eq_sys_jtag_uart_scfifo_r
+R0
+R1
+R2
+R3
+R4
+R5
+R6
+R7
+R8
+R9
+l0
+L313
+V:TgQdTfEfE0Pi]nPQ^hVS1
+!s100 k117W0]a0GEj@29h8<N^>2
+R10
+32
+R11
+!i10b 1
+R12
+R13
+R14
+!i113 1
+R15
+R16
+Aeuropa
+R1
+R2
+R3
+R4
+R5
+R6
+DEx4 work 24 q_sys_jtag_uart_scfifo_r 0 22 :TgQdTfEfE0Pi]nPQ^hVS1
+l381
+L332
+VHoc[E1`ji>R;WS::TD4=S2
+!s100 :5:l=c8H5T?I8>30A0nl41
+R10
+32
+R11
+!i10b 1
+R12
+R13
+R14
+!i113 1
+R15
+R16
+Eq_sys_jtag_uart_scfifo_w
+R0
+R1
+R2
+R3
+R4
+R5
+R6
+R7
+R8
+R9
+l0
+L95
+V3Y1fml_;fHgAz<EU_C8bj0
+!s100 Z1Kk15odGzUgF?AiOeb:>1
+R10
+32
+R11
+!i10b 1
+R12
+R13
+R14
+!i113 1
+R15
+R16
+Aeuropa
+R1
+R2
+R3
+R4
+R5
+R6
+DEx4 work 24 q_sys_jtag_uart_scfifo_w 0 22 3Y1fml_;fHgAz<EU_C8bj0
+l162
+L113
+VmGaAc>IV77kfSVHQ==gMD2
+!s100 omhL8VM;:Hnn1QW:Qk4XA2
+R10
+32
+R11
+!i10b 1
+R12
+R13
+R14
+!i113 1
+R15
+R16
+Eq_sys_jtag_uart_sim_scfifo_r
+R0
+Z17 DPx9 altera_mf 20 altera_mf_components 0 22 gV:l9C^?PSb6]b5V?_jR@3
+R1
+R2
+R3
+R4
+R5
+R6
+R7
+R8
+R9
+l0
+L233
+VA@K9I1Q]094djMUz=2oQj2
+!s100 iNFcB7iGPRkZ<ZLnQPlUj0
+R10
+32
+R11
+!i10b 1
+R12
+R13
+R14
+!i113 1
+R15
+R16
+Aeuropa
+R17
+R1
+R2
+R3
+R4
+R5
+R6
+DEx4 work 28 q_sys_jtag_uart_sim_scfifo_r 0 22 A@K9I1Q]094djMUz=2oQj2
+l257
+L249
+V9_^[nX4@;_HQSa;d91Gm<2
+!s100 MYI?KRm3z9S<`F2:STgc_2
+R10
+32
+R11
+!i10b 1
+R12
+R13
+R14
+!i113 1
+R15
+R16
+Eq_sys_jtag_uart_sim_scfifo_w
+R0
+R17
+R1
+R2
+R3
+R4
+R5
+R6
+R7
+R8
+R9
+l0
+L32
+V5TC9aXW?jNzf5TV1^IIi40
+!s100 4P:cfI8i<S@d<P]3cKH^j2
+R10
+32
+R11
+!i10b 1
+R12
+R13
+R14
+!i113 1
+R15
+R16
+Aeuropa
+R17
+R1
+R2
+R3
+R4
+R5
+R6
+DEx4 work 28 q_sys_jtag_uart_sim_scfifo_w 0 22 5TC9aXW?jNzf5TV1^IIi40
+l50
+L48
+VXZcChl[QQVn7:lEYVS_073
+!s100 79C8zmjIgfP<C_l3d_Y]?3
+R10
+32
+R11
+!i10b 1
+R12
+R13
+R14
+!i113 1
+R15
+R16

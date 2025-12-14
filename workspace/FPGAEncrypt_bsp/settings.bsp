@@ -2,9 +2,9 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>ucosii</BspType>
         <BspVersion>default</BspVersion>
-        <BspGeneratedTimeStamp>19/11/2025 11:07:19</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1763557639806</BspGeneratedUnixTimeStamp>
-        <BspGeneratedLocation>C:\vhdl\projetofinal\FPGAEncrypt\workspace\FPGAEncrypt_bsp</BspGeneratedLocation>
+        <BspGeneratedTimeStamp>10/12/2025 12:57:20</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1765378640146</BspGeneratedUnixTimeStamp>
+        <BspGeneratedLocation>C:\vhdl\projetofinal\uprocessador_cyclone\workspace\FPGAEncrypt_bsp</BspGeneratedLocation>
         <BspSettingsFile>settings.bsp</BspSettingsFile>
         <SopcDesignFile>..\..\q_sys.sopcinfo</SopcDesignFile>
         <JdiFile>default</JdiFile>

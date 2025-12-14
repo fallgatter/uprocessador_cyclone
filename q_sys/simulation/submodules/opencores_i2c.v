@@ -6,7 +6,7 @@
 
 module opencores_i2c
 #(
-	FIXED_PRESCALE = 0 // Use fixed prescale value if non-zero
+	parameter FIXED_PRESCALE = 0 // Use fixed prescale value if non-zero
 ) (
 	wb_clk_i, wb_rst_i, wb_adr_i, wb_dat_i, wb_dat_o,
 	wb_we_i, wb_stb_i, /*wb_cyc_i,*/ wb_ack_o, wb_inta_o,

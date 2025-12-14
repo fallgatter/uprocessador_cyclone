@@ -22,6 +22,14 @@ architecture userhw_arch of userhw is
 			data_out : out std_logic_vector(31 downto 0)
 		);
 	end component;
+	COMPONENT reg32_sc IS
+		PORT ( 
+			clock, resetn : IN STD_LOGIC;
+			WE : IN STD_LOGIC;
+			D : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+			Q : OUT STD_LOGIC_VECTOR(31 DOWNTO 0) 
+		);
+	END COMPONENT;
 	component processador is
 		port(
 			clk       : in std_logic;
@@ -49,10 +57,11 @@ architecture userhw_arch of userhw is
 		);
 	end component;
 		
-	signal wren_c, wren_d : std_logic;
+	signal wren_c, wren_d, wren_ram, wren_step, rst_n : std_logic;
 
-	signal con_out  : std_logic_vector(31 downto 0);
-	signal data_d   : std_logic_vector(31 downto 0);
+	signal con_reg  : std_logic_vector(31 downto 0);
+	signal data_reg   : std_logic_vector(31 downto 0);
+	signal step_reg   : std_logic_vector(31 downto 0);
 	signal data_out : std_logic_vector(31 downto 0);
 	signal ram_data_out : unsigned(16 downto 0);
 	signal data_ready : std_logic := '0';
@@ -68,12 +77,10 @@ architecture userhw_arch of userhw is
 	signal reg4_data : unsigned(15 downto 0) := x"0000";
 	signal reg5_data : unsigned(15 downto 0) := x"0000";
 	signal reg6_data : unsigned(15 downto 0) := x"0000";
-	signal pc_value  : unsigned(6 downto 0)  := "0000000";
+	signal pc_value, end_ram  : unsigned(6 downto 0)  := "0000000";
+	signal clk_up, up_en	  : std_logic := '0';
 	
 begin
-
-	wren_c <= '1' when (address = "000" and write = '1') else '0';
-	wren_d <= '1' when (address = "001" and write = '1') else '0';
 
 	con : reg32 --controle
 		port map(
@@ -81,7 +88,7 @@ begin
 			rst => rst,
 			wren => wren_c,
 			data_in => writedata,
-			data_out => con_out
+			data_out => con_reg
 		);
 
 	reg_d : reg32 --dados
@@ -90,11 +97,21 @@ begin
 			rst => rst,
 			wren => wren_d,
 			data_in => writedata,
-			data_out => data_d
+			data_out => data_reg
 		);
+		
+	reg_step: reg32_sc
+		port map(
+			clock => clk,
+			resetn => rst_n,
+			WE => wren_step,
+			D => writedata,
+			Q => step_reg
+		);
+		
 	up : processador
 		port map(
-			clk 		 => clk,
+			clk 		 => clk_up,
 			reset     => rst,
 			instr     => ram_data_out,
 			state_now => current_state,
@@ -108,51 +125,83 @@ begin
 			reg6_data => reg6_data,
 			pc_value  => pc_value
 		);
+		
 	ram : ram_ext
 		port map(
 			clk => clk,
-			endereco => pc_value, -- Colocar PC aqui
-			wr_en => '0', -- Tem que construir essa lógica aqui
-			dado_in => unsigned(data_d(16 downto 0)),
+			endereco => end_ram, -- Colocar PC aqui
+			wr_en => wren_ram, -- Tem que construir essa lógica aqui
+			dado_in => unsigned(data_reg(16 downto 0)),
 			dado_out => ram_data_out
 		);
-
+		
+	rst_n <= not rst;
+		
+	wren_c <= '1' when (address = "000" and write = '1') else 
+				 '0';
+				 
+	wren_d <= '1' when (address = "001" and write = '1') else 
+				 '0';
+				 
+	wren_ram <= '1' when (address = "010" and write = '1') else 
+					'0';
+					
+	wren_step <= '1' when (address = "011" and write = '1') else
+					 '0';
+					
+	end_ram <= unsigned(writedata(6 downto 0)) when con_reg(2) = '0' and con_reg(1) = '0' and con_reg(0) = '1' else
+				  pc_value;-- when con_reg(2) = '0' and con_reg(1) = '1' and con_reg(0) = '0' else
+				  --"0000000";
+	
+	clk_up <= clk and up_en;
+	
 	process(clk)
 	begin
 		if(rising_edge(clk)) then
-			if(rst = '1') then
-				data_out <= (others => '0');
-				data_ready <= '0';
-			elsif(data_ready = '1') then
-				 data_ready <= '0';
-			elsif(con_out(0) = '1' and data_ready = '0') then -- start
-				 if data_d(7 downto 0) = x"F7" then
-					  data_out <= x"00000000";
-				 else
-					  data_out <= (31 downto 8 => '0') & std_logic_vector(unsigned(data_d(7 downto 0))+1);
-				 end if;
-				 data_ready <= '1';
+			if((step_reg(0) = '1' and con_reg(2) = '0' and con_reg(1) = '1' and con_reg(0) = '1') or (con_reg(2) = '1' and con_reg(1) = '0' and con_reg(0) = '0')) then
+				up_en <= '1';
+			elsif(current_state = "10" and (con_reg(2) = '0' and con_reg(1) = '1' and con_reg(0) = '1')) then
+				up_en <= '0';
 			end if;
 		end if;
 	end process;
-
-	process(clk, read)
-		begin
-		if(rising_edge(clk)) then
-			if(read = '1') then
-				if(address = "010") then
-					if(data_ready = '1') then
-						readdata <= x"00000001";
-					else
-						readdata <= x"00000000";
-					end if;
-				elsif(address = "011") then
-					readdata <= data_out;
-				else
-					readdata <= (others => 'Z');
-				end if;
-			end if;
-		end if;
-	end process;
+	
+--	process(clk)
+--	begin
+--		if(rising_edge(clk)) then
+--			if(rst = '1') then
+--				data_out <= (others => '0');
+--				data_ready <= '0';
+--			elsif(data_ready = '1') then
+--				 data_ready <= '0';
+--			elsif(con_out(0) = '1' and data_ready = '0') then -- start
+--				 if data_d(7 downto 0) = x"F7" then
+--					  data_out <= x"00000000";
+--				 else
+--					  data_out <= (31 downto 8 => '0') & std_logic_vector(unsigned(data_d(7 downto 0))+1);
+--				 end if;
+--				 data_ready <= '1';
+--			end if;
+--		end if;
+--	end process;
+--
+--	process(clk, read)
+--		begin
+--		if(rising_edge(clk)) then
+--			if(read = '1') then
+--				if(address = "010") then
+--					if(data_ready = '1') then
+--						readdata <= x"00000001";
+--					else
+--						readdata <= x"00000000";
+--					end if;
+--				elsif(address = "011") then
+--					readdata <= data_out;
+--				else
+--					readdata <= (others => 'Z');
+--				end if;
+--			end if;
+--		end if;
+--	end process;
 
 end architecture;

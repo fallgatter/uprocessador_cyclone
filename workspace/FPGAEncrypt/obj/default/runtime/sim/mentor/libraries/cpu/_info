@@ -7,130 +7,151 @@ z2
 !i10e 25
 !i10f 100
 cModel Technology
-Z0 dC:/FPGAEncrypt/workspace/FPGAEncrypt/obj/default/runtime/sim/mentor
-vq_sys_cpu_cpu
-Z1 !s110 1752358066
+dC:/FPGAEncrypt/workspace/FPGAEncrypt/obj/default/runtime/sim/mentor
+vq_sys_cpu
+!s110 1765382633
 !i10b 1
-!s100 `n:mP6gVJ?mXid=oRhkfC3
-I2MJbB0P:42KhmeC<fI^JF0
-Z2 VDg1SIo80bB@j0V0VzS_@n1
-R0
-Z3 w1751929878
-8C:/FPGAEncrypt/q_sys/simulation/submodules/q_sys_cpu_cpu.vo
-FC:/FPGAEncrypt/q_sys/simulation/submodules/q_sys_cpu_cpu.vo
-L0 31
-Z4 OV;L;10.5b;63
+!s100 @oVf^N_khf5_@EXjGZcD72
+IF1mk^VBgJHf>P@9<LF9Ql2
+Z0 VDg1SIo80bB@j0V0VzS_@n1
+Z1 dC:/vhdl/projetofinal/uprocessador_cyclone/workspace/FPGAEncrypt/obj/default/runtime/sim/mentor
+w1765376497
+8C:/vhdl/projetofinal/uprocessador_cyclone/q_sys/simulation/submodules/q_sys_cpu.v
+FC:/vhdl/projetofinal/uprocessador_cyclone/q_sys/simulation/submodules/q_sys_cpu.v
+L0 9
+Z2 OV;L;10.5b;63
 r1
 !s85 0
 31
-!s108 1752358065.000000
-!s107 C:/FPGAEncrypt/q_sys/simulation/submodules/q_sys_cpu_cpu.vo|
-!s90 -reportprogress|300|C:/FPGAEncrypt/q_sys/simulation/submodules/q_sys_cpu_cpu.vo|-work|cpu|
+!s108 1765382633.000000
+!s107 C:/vhdl/projetofinal/uprocessador_cyclone/q_sys/simulation/submodules/q_sys_cpu.v|
+!s90 -reportprogress|300|C:/vhdl/projetofinal/uprocessador_cyclone/q_sys/simulation/submodules/q_sys_cpu.v|-work|cpu|
 !i113 1
-Z5 o-work cpu
-Z6 tCvgOpt 0
-vq_sys_cpu_cpu_debug_slave_sysclk
+Z3 o-work cpu
+Z4 tCvgOpt 0
+vq_sys_cpu_cpu
+Z5 !s110 1765382629
+!i10b 1
+!s100 4P5n=P;hD9C`kdP84PhlS0
+IbDiNDfIZmfgBkNBSD=nX63
+R0
 R1
+Z6 w1765376544
+8C:/vhdl/projetofinal/uprocessador_cyclone/q_sys/simulation/submodules/q_sys_cpu_cpu.vo
+FC:/vhdl/projetofinal/uprocessador_cyclone/q_sys/simulation/submodules/q_sys_cpu_cpu.vo
+L0 31
+R2
+r1
+!s85 0
+31
+Z7 !s108 1765382629.000000
+!s107 C:/vhdl/projetofinal/uprocessador_cyclone/q_sys/simulation/submodules/q_sys_cpu_cpu.vo|
+!s90 -reportprogress|300|C:/vhdl/projetofinal/uprocessador_cyclone/q_sys/simulation/submodules/q_sys_cpu_cpu.vo|-work|cpu|
+!i113 1
+R3
+R4
+vq_sys_cpu_cpu_debug_slave_sysclk
+R5
 !i10b 1
 !s100 enI0WP:W:X=?ja[Lz=jJk2
-ID;agMfCFgALEgagChoL7i3
-R2
+I<NZWdG8X?Wj2[9g]aJ0id2
 R0
-R3
-8C:/FPGAEncrypt/q_sys/simulation/submodules/q_sys_cpu_cpu_debug_slave_sysclk.v
-FC:/FPGAEncrypt/q_sys/simulation/submodules/q_sys_cpu_cpu_debug_slave_sysclk.v
-Z7 L0 21
-R4
+R1
+R6
+8C:/vhdl/projetofinal/uprocessador_cyclone/q_sys/simulation/submodules/q_sys_cpu_cpu_debug_slave_sysclk.v
+FC:/vhdl/projetofinal/uprocessador_cyclone/q_sys/simulation/submodules/q_sys_cpu_cpu_debug_slave_sysclk.v
+Z8 L0 21
+R2
 r1
 !s85 0
 31
-Z8 !s108 1752358066.000000
-!s107 C:/FPGAEncrypt/q_sys/simulation/submodules/q_sys_cpu_cpu_debug_slave_sysclk.v|
-!s90 -reportprogress|300|C:/FPGAEncrypt/q_sys/simulation/submodules/q_sys_cpu_cpu_debug_slave_sysclk.v|-work|cpu|
+R7
+!s107 C:/vhdl/projetofinal/uprocessador_cyclone/q_sys/simulation/submodules/q_sys_cpu_cpu_debug_slave_sysclk.v|
+!s90 -reportprogress|300|C:/vhdl/projetofinal/uprocessador_cyclone/q_sys/simulation/submodules/q_sys_cpu_cpu_debug_slave_sysclk.v|-work|cpu|
 !i113 1
-R5
-R6
+R3
+R4
 vq_sys_cpu_cpu_debug_slave_tck
-R1
+R5
 !i10b 1
 !s100 47<F2=]6>:57IR3Y3G?iA2
-IW^SD5[m_G_PF>PjD:1UDF1
-R2
+I1lN3Gn0hDL;Hf6BmOHce]3
 R0
-R3
-8C:/FPGAEncrypt/q_sys/simulation/submodules/q_sys_cpu_cpu_debug_slave_tck.v
-FC:/FPGAEncrypt/q_sys/simulation/submodules/q_sys_cpu_cpu_debug_slave_tck.v
-R7
-R4
+R1
+R6
+8C:/vhdl/projetofinal/uprocessador_cyclone/q_sys/simulation/submodules/q_sys_cpu_cpu_debug_slave_tck.v
+FC:/vhdl/projetofinal/uprocessador_cyclone/q_sys/simulation/submodules/q_sys_cpu_cpu_debug_slave_tck.v
+R8
+R2
 r1
 !s85 0
 31
-R8
-!s107 C:/FPGAEncrypt/q_sys/simulation/submodules/q_sys_cpu_cpu_debug_slave_tck.v|
-!s90 -reportprogress|300|C:/FPGAEncrypt/q_sys/simulation/submodules/q_sys_cpu_cpu_debug_slave_tck.v|-work|cpu|
+R7
+!s107 C:/vhdl/projetofinal/uprocessador_cyclone/q_sys/simulation/submodules/q_sys_cpu_cpu_debug_slave_tck.v|
+!s90 -reportprogress|300|C:/vhdl/projetofinal/uprocessador_cyclone/q_sys/simulation/submodules/q_sys_cpu_cpu_debug_slave_tck.v|-work|cpu|
 !i113 1
-R5
-R6
+R3
+R4
 vq_sys_cpu_cpu_debug_slave_wrapper
-R1
+R5
 !i10b 1
 !s100 WO_7@K3a8o2aLfZZai8IK2
-IQLVka2@M58lDWLdg]2fIz2
-R2
+ISIOz<4;Nc:l7LT[KbN@]60
 R0
-R3
-8C:/FPGAEncrypt/q_sys/simulation/submodules/q_sys_cpu_cpu_debug_slave_wrapper.v
-FC:/FPGAEncrypt/q_sys/simulation/submodules/q_sys_cpu_cpu_debug_slave_wrapper.v
-R7
-R4
+R1
+R6
+8C:/vhdl/projetofinal/uprocessador_cyclone/q_sys/simulation/submodules/q_sys_cpu_cpu_debug_slave_wrapper.v
+FC:/vhdl/projetofinal/uprocessador_cyclone/q_sys/simulation/submodules/q_sys_cpu_cpu_debug_slave_wrapper.v
+R8
+R2
 r1
 !s85 0
 31
-R8
-!s107 C:/FPGAEncrypt/q_sys/simulation/submodules/q_sys_cpu_cpu_debug_slave_wrapper.v|
-!s90 -reportprogress|300|C:/FPGAEncrypt/q_sys/simulation/submodules/q_sys_cpu_cpu_debug_slave_wrapper.v|-work|cpu|
+R7
+!s107 C:/vhdl/projetofinal/uprocessador_cyclone/q_sys/simulation/submodules/q_sys_cpu_cpu_debug_slave_wrapper.v|
+!s90 -reportprogress|300|C:/vhdl/projetofinal/uprocessador_cyclone/q_sys/simulation/submodules/q_sys_cpu_cpu_debug_slave_wrapper.v|-work|cpu|
 !i113 1
-R5
-R6
+R3
+R4
 vq_sys_cpu_cpu_mult_cell
-R1
+R5
 !i10b 1
 !s100 g8JAR_9VF@@L9Om]A6KOP3
-IffYFX<>3OKOAP<]nWUjeX3
-R2
+IhH03D<GH_F>=;flT:Bz8T1
 R0
-R3
-8C:/FPGAEncrypt/q_sys/simulation/submodules/q_sys_cpu_cpu_mult_cell.v
-FC:/FPGAEncrypt/q_sys/simulation/submodules/q_sys_cpu_cpu_mult_cell.v
-R7
-R4
+R1
+R6
+8C:/vhdl/projetofinal/uprocessador_cyclone/q_sys/simulation/submodules/q_sys_cpu_cpu_mult_cell.v
+FC:/vhdl/projetofinal/uprocessador_cyclone/q_sys/simulation/submodules/q_sys_cpu_cpu_mult_cell.v
+R8
+R2
 r1
 !s85 0
 31
-R8
-!s107 C:/FPGAEncrypt/q_sys/simulation/submodules/q_sys_cpu_cpu_mult_cell.v|
-!s90 -reportprogress|300|C:/FPGAEncrypt/q_sys/simulation/submodules/q_sys_cpu_cpu_mult_cell.v|-work|cpu|
+R7
+!s107 C:/vhdl/projetofinal/uprocessador_cyclone/q_sys/simulation/submodules/q_sys_cpu_cpu_mult_cell.v|
+!s90 -reportprogress|300|C:/vhdl/projetofinal/uprocessador_cyclone/q_sys/simulation/submodules/q_sys_cpu_cpu_mult_cell.v|-work|cpu|
 !i113 1
-R5
-R6
+R3
+R4
 vq_sys_cpu_cpu_test_bench
-R1
+!s110 1765382630
 !i10b 1
 !s100 <FBXQhV]1:NCO?Oe2;>Oc1
-IzDPe@LCdSg84A?YI_Na;[1
-R2
+Id7LH7RVhGjzzoJdzc7_fM1
 R0
-R3
-8C:/FPGAEncrypt/q_sys/simulation/submodules/q_sys_cpu_cpu_test_bench.v
-FC:/FPGAEncrypt/q_sys/simulation/submodules/q_sys_cpu_cpu_test_bench.v
-R7
-R4
+R1
+R6
+8C:/vhdl/projetofinal/uprocessador_cyclone/q_sys/simulation/submodules/q_sys_cpu_cpu_test_bench.v
+FC:/vhdl/projetofinal/uprocessador_cyclone/q_sys/simulation/submodules/q_sys_cpu_cpu_test_bench.v
+R8
+R2
 r1
 !s85 0
 31
-R8
-!s107 C:/FPGAEncrypt/q_sys/simulation/submodules/q_sys_cpu_cpu_test_bench.v|
-!s90 -reportprogress|300|C:/FPGAEncrypt/q_sys/simulation/submodules/q_sys_cpu_cpu_test_bench.v|-work|cpu|
+!s108 1765382630.000000
+!s107 C:/vhdl/projetofinal/uprocessador_cyclone/q_sys/simulation/submodules/q_sys_cpu_cpu_test_bench.v|
+!s90 -reportprogress|300|C:/vhdl/projetofinal/uprocessador_cyclone/q_sys/simulation/submodules/q_sys_cpu_cpu_test_bench.v|-work|cpu|
 !i113 1
-R5
-R6
+R3
+R4

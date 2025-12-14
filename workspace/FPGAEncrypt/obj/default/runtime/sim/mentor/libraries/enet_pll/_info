@@ -8,3 +8,50 @@ z2
 !i10f 100
 cModel Technology
 dC:/FPGAEncrypt/workspace/FPGAEncrypt/obj/default/runtime/sim/mentor
+Eq_sys_enet_pll
+Z0 w1765376506
+Z1 DPx4 ieee 16 vital_primitives 0 22 G>kiXP8Q9dRClKfK1Zn7j1
+Z2 DPx11 cyclone10lp 21 cyclone10lp_atom_pack 0 22 @K_B1clB5?bHSoD[5AnUU3
+Z3 DPx4 ieee 12 vital_timing 0 22 J>EBealN09f8GzldA[z2>3
+Z4 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z5 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+Z6 DPx11 cyclone10lp 22 cyclone10lp_components 0 22 9<]d_X1IHoc6C5IVSLhkd2
+Z7 dC:/vhdl/projetofinal/uprocessador_cyclone/workspace/FPGAEncrypt/obj/default/runtime/sim/mentor
+Z8 8C:/vhdl/projetofinal/uprocessador_cyclone/q_sys/simulation/submodules/q_sys_enet_pll.vho
+Z9 FC:/vhdl/projetofinal/uprocessador_cyclone/q_sys/simulation/submodules/q_sys_enet_pll.vho
+l0
+L33
+VA@^;FiJ<MJJfDh2:gLPcc3
+!s100 c;;SXcFY0LP4KA7gca^3:3
+Z10 OV;C;10.5b;63
+32
+Z11 !s110 1765382633
+!i10b 1
+Z12 !s108 1765382633.000000
+Z13 !s90 -reportprogress|300|C:/vhdl/projetofinal/uprocessador_cyclone/q_sys/simulation/submodules/q_sys_enet_pll.vho|-work|enet_pll|
+Z14 !s107 C:/vhdl/projetofinal/uprocessador_cyclone/q_sys/simulation/submodules/q_sys_enet_pll.vho|
+!i113 1
+Z15 o-work enet_pll
+Z16 tExplicit 1 CvgOpt 0
+Artl
+R1
+R2
+R3
+R4
+R5
+R6
+DEx4 work 14 q_sys_enet_pll 0 22 A@^;FiJ<MJJfDh2:gLPcc3
+l96
+L63
+VbdPGgdS?YZm4hPN7o70211
+!s100 fVD;Lc5jbH51hfMg;6gHj3
+R10
+32
+R11
+!i10b 1
+R12
+R13
+R14
+!i113 1
+R15
+R16

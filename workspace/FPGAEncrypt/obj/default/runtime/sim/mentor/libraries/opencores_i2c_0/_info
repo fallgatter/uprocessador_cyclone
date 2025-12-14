@@ -8,3 +8,87 @@ z2
 !i10f 100
 cModel Technology
 dC:/FPGAEncrypt/workspace/FPGAEncrypt/obj/default/runtime/sim/mentor
+vi2c_master_bit_ctrl
+Z0 !s110 1765382631
+!i10b 1
+!s100 XeQh[MznknHXo>^P=Vg<e3
+INZB=21e4cHLNmjbibdCWn2
+Z1 VDg1SIo80bB@j0V0VzS_@n1
+Z2 dC:/vhdl/projetofinal/uprocessador_cyclone/workspace/FPGAEncrypt/obj/default/runtime/sim/mentor
+w1765378317
+8C:/vhdl/projetofinal/uprocessador_cyclone/q_sys/simulation/submodules/i2c_master_bit_ctrl.v
+FC:/vhdl/projetofinal/uprocessador_cyclone/q_sys/simulation/submodules/i2c_master_bit_ctrl.v
+L0 143
+Z3 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z4 !s108 1765382631.000000
+!s107 C:\vhdl\projetofinal\uprocessador_cyclone\q_sys\simulation\submodules\i2c_master_defines.v|C:/vhdl/projetofinal/uprocessador_cyclone/q_sys/simulation/submodules/i2c_master_bit_ctrl.v|
+!s90 -reportprogress|300|C:/vhdl/projetofinal/uprocessador_cyclone/q_sys/simulation/submodules/i2c_master_bit_ctrl.v|-work|opencores_i2c_0|
+!i113 1
+Z5 o-work opencores_i2c_0
+Z6 tCvgOpt 0
+vi2c_master_byte_ctrl
+R0
+!i10b 1
+!s100 ?e8BL5@egK@QGeHD_jZ]62
+IaZaIo0X0l7k6Ko:Id_4<?3
+R1
+R2
+w1765378802
+8C:/vhdl/projetofinal/uprocessador_cyclone/q_sys/simulation/submodules/i2c_master_byte_ctrl.v
+FC:/vhdl/projetofinal/uprocessador_cyclone/q_sys/simulation/submodules/i2c_master_byte_ctrl.v
+L0 75
+R3
+r1
+!s85 0
+31
+R4
+!s107 C:\vhdl\projetofinal\uprocessador_cyclone\q_sys\simulation\submodules\i2c_master_defines.v|C:/vhdl/projetofinal/uprocessador_cyclone/q_sys/simulation/submodules/i2c_master_byte_ctrl.v|
+!s90 -reportprogress|300|C:/vhdl/projetofinal/uprocessador_cyclone/q_sys/simulation/submodules/i2c_master_byte_ctrl.v|-work|opencores_i2c_0|
+!i113 1
+R5
+R6
+vi2c_master_top
+!s110 1765382632
+!i10b 1
+!s100 8DabkX1iC7FMNSIL7kW9?2
+ITGaoQzING<aH_5a75;3[e2
+R1
+R2
+w1765382476
+8C:/vhdl/projetofinal/uprocessador_cyclone/q_sys/simulation/submodules/i2c_master_top.v
+FC:/vhdl/projetofinal/uprocessador_cyclone/q_sys/simulation/submodules/i2c_master_top.v
+L0 78
+R3
+r1
+!s85 0
+31
+!s108 1765382632.000000
+!s107 C:\vhdl\projetofinal\uprocessador_cyclone\q_sys\simulation\submodules\i2c_master_defines.v|C:/vhdl/projetofinal/uprocessador_cyclone/q_sys/simulation/submodules/i2c_master_top.v|
+!s90 -reportprogress|300|C:/vhdl/projetofinal/uprocessador_cyclone/q_sys/simulation/submodules/i2c_master_top.v|-work|opencores_i2c_0|
+!i113 1
+R5
+R6
+vopencores_i2c
+R0
+!i10b 1
+!s100 mfZ:@S<h8ccVBkED4jf9f1
+I>XaCVL6`FoY0?`hP;oA0b1
+R1
+R2
+w1765377674
+8C:/vhdl/projetofinal/uprocessador_cyclone/q_sys/simulation/submodules/opencores_i2c.v
+FC:/vhdl/projetofinal/uprocessador_cyclone/q_sys/simulation/submodules/opencores_i2c.v
+L0 7
+R3
+r1
+!s85 0
+31
+R4
+!s107 C:\vhdl\projetofinal\uprocessador_cyclone\q_sys\simulation\submodules\i2c_master_defines.v|C:\vhdl\projetofinal\uprocessador_cyclone\q_sys\simulation\submodules\timescale.v|C:/vhdl/projetofinal/uprocessador_cyclone/q_sys/simulation/submodules/opencores_i2c.v|
+!s90 -reportprogress|300|C:/vhdl/projetofinal/uprocessador_cyclone/q_sys/simulation/submodules/opencores_i2c.v|-work|opencores_i2c_0|
+!i113 1
+R5
+R6

@@ -141,7 +141,7 @@
 `include "i2c_master_defines.v"
 
 module i2c_master_bit_ctrl #(
-	CLK_CNT_WIDTH = 16
+	parameter CLK_CNT_WIDTH = 16
 ) (
     input             clk,      // system clock
     input             rst,      // synchronous active high reset

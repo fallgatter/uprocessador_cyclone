@@ -7,41 +7,41 @@ z2
 !i10e 25
 !i10f 100
 cModel Technology
-Z0 dC:/FPGAEncrypt/workspace/FPGAEncrypt/obj/default/runtime/sim/mentor
+dC:/FPGAEncrypt/workspace/FPGAEncrypt/obj/default/runtime/sim/mentor
 valtera_gpio_lite
-Z1 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
-Z2 !s110 1752358067
+Z0 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
+Z1 !s110 1765382631
 !i10b 1
 !s100 mcJ@@2HNNf2oMEL5UAe@00
-Ij61kUl`gj]O8Cb1R4IX371
-Z3 VDg1SIo80bB@j0V0VzS_@n1
-Z4 !s105 altera_gpio_lite_sv_unit
+IV7;z:0b:n1VfW2C?h2?cN0
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+Z3 !s105 altera_gpio_lite_sv_unit
 S1
-R0
-Z5 w1751929827
-Z6 8C:/FPGAEncrypt/q_sys/simulation/submodules/altera_gpio_lite.sv
-Z7 FC:/FPGAEncrypt/q_sys/simulation/submodules/altera_gpio_lite.sv
+Z4 dC:/vhdl/projetofinal/uprocessador_cyclone/workspace/FPGAEncrypt/obj/default/runtime/sim/mentor
+Z5 w1765376511
+Z6 8C:/vhdl/projetofinal/uprocessador_cyclone/q_sys/simulation/submodules/altera_gpio_lite.sv
+Z7 FC:/vhdl/projetofinal/uprocessador_cyclone/q_sys/simulation/submodules/altera_gpio_lite.sv
 L0 940
 Z8 OV;L;10.5b;63
 r1
 !s85 0
 31
-Z9 !s108 1752358067.000000
-Z10 !s107 C:/FPGAEncrypt/q_sys/simulation/submodules/altera_gpio_lite.sv|
-Z11 !s90 -reportprogress|300|C:/FPGAEncrypt/q_sys/simulation/submodules/altera_gpio_lite.sv|-work|sll_hyperbus_controller_top_0|
+Z9 !s108 1765382631.000000
+Z10 !s107 C:/vhdl/projetofinal/uprocessador_cyclone/q_sys/simulation/submodules/altera_gpio_lite.sv|
+Z11 !s90 -reportprogress|300|C:/vhdl/projetofinal/uprocessador_cyclone/q_sys/simulation/submodules/altera_gpio_lite.sv|-work|sll_hyperbus_controller_top_0|
 !i113 1
 Z12 o-work sll_hyperbus_controller_top_0
 Z13 tCvgOpt 0
 valtgpio_one_bit
+R0
 R1
-R2
 !i10b 1
 !s100 A<6c0iH^IYoe9^l^?>[>A2
-IS^ilFXJjK0R@icmUXz3><0
+I6HcW7TEiDX;b<>X=D5z_J2
+R2
 R3
-R4
 S1
-R0
+R4
 R5
 R6
 R7
