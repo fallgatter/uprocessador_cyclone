@@ -2,96 +2,96 @@
 Timing Analyzer Summary
 ------------------------------------------------------------
 
-Type  : Slow 1200mV 100C Model Setup 'clkout0'
-Slack : -0.161
-TNS   : -0.161
+Type  : Slow 1200mV 100C Model Setup 'q_sys_inst|sll_hyperbus_controller_top_0|U_IO|pll_.U_SLL_HBC_T001_PLL|altpll_component|auto_generated|pll1|clk[3]'
+Slack : -1.571
+TNS   : -21.214
 
-Type  : Slow 1200mV 100C Model Setup 'q_sys_inst|sll_hyperbus_controller_top_0|U_IO|pll_.U_SLL_HBC_T001_PLL|altpll_component|auto_generated|pll1|clk[2]'
-Slack : 0.427
+Type  : Slow 1200mV 100C Model Setup 'clkout0'
+Slack : 0.365
 TNS   : 0.000
 
 Type  : Slow 1200mV 100C Model Setup 'enet_tx_clk_125m'
-Slack : 0.658
-TNS   : 0.000
-
-Type  : Slow 1200mV 100C Model Setup 'q_sys_inst|sll_hyperbus_controller_top_0|U_IO|pll_.U_SLL_HBC_T001_PLL|altpll_component|auto_generated|pll1|clk[1]'
-Slack : 1.013
+Slack : 0.532
 TNS   : 0.000
 
 Type  : Slow 1200mV 100C Model Setup 'rds_clk0'
-Slack : 1.113
+Slack : 1.020
 TNS   : 0.000
 
 Type  : Slow 1200mV 100C Model Setup 'enet_rx_clk_125m'
-Slack : 1.130
+Slack : 1.134
 TNS   : 0.000
 
-Type  : Slow 1200mV 100C Model Setup 'q_sys_inst|sll_hyperbus_controller_top_0|U_IO|pll_.U_SLL_HBC_T001_PLL|altpll_component|auto_generated|pll1|clk[3]'
-Slack : 1.130
+Type  : Slow 1200mV 100C Model Setup 'q_sys_inst|sll_hyperbus_controller_top_0|U_IO|pll_.U_SLL_HBC_T001_PLL|altpll_component|auto_generated|pll1|clk[1]'
+Slack : 1.141
+TNS   : 0.000
+
+Type  : Slow 1200mV 100C Model Setup 'q_sys_inst|sll_hyperbus_controller_top_0|U_IO|pll_.U_SLL_HBC_T001_PLL|altpll_component|auto_generated|pll1|clk[2]'
+Slack : 1.229
 TNS   : 0.000
 
 Type  : Slow 1200mV 100C Model Setup 'q_sys_inst|sll_hyperbus_controller_top_0|U_IO|pll_.U_SLL_HBC_T001_PLL|altpll_component|auto_generated|pll1|clk[0]'
-Slack : 1.515
+Slack : 1.431
 TNS   : 0.000
 
 Type  : Slow 1200mV 100C Model Setup 'q_sys_inst|enet_pll|sd1|pll7|clk[0]'
-Slack : 2.252
+Slack : 1.661
 TNS   : 0.000
 
 Type  : Slow 1200mV 100C Model Setup 'altera_reserved_tck'
-Slack : 3.507
+Slack : 3.642
 TNS   : 0.000
 
 Type  : Slow 1200mV 100C Model Setup 'enet_tx_clk_25m'
-Slack : 8.687
+Slack : 8.543
 TNS   : 0.000
 
 Type  : Slow 1200mV 100C Model Setup 'enet_rx_clk_25m'
-Slack : 9.130
+Slack : 9.134
 TNS   : 0.000
 
 Type  : Slow 1200mV 100C Model Setup 'q_sys_inst|enet_pll|sd1|pll7|clk[1]'
-Slack : 10.175
+Slack : 9.334
 TNS   : 0.000
 
 Type  : Slow 1200mV 100C Model Setup 'hbus_clk_50m'
-Slack : 16.735
+Slack : 16.737
 TNS   : 0.000
 
 Type  : Slow 1200mV 100C Model Setup 'c10_clk50m'
-Slack : 18.176
+Slack : 19.132
 TNS   : 0.000
 
 Type  : Slow 1200mV 100C Model Setup 'enet_tx_clk_2m5'
-Slack : 92.561
+Slack : 91.151
 TNS   : 0.000
 
 Type  : Slow 1200mV 100C Model Setup 'enet_rx_clk_2m5'
-Slack : 99.130
+Slack : 99.134
 TNS   : 0.000
 
 Type  : Slow 1200mV 100C Model Setup 'q_sys_inst|enet_pll|sd1|pll7|clk[2]'
-Slack : 100.069
+Slack : 101.410
 TNS   : 0.000
 
 Type  : Slow 1200mV 100C Model Hold 'rds_clk0'
-Slack : 0.258
-TNS   : 0.000
-
-Type  : Slow 1200mV 100C Model Hold 'q_sys_inst|sll_hyperbus_controller_top_0|U_IO|pll_.U_SLL_HBC_T001_PLL|altpll_component|auto_generated|pll1|clk[3]'
-Slack : 0.282
+Slack : 0.241
 TNS   : 0.000
 
 Type  : Slow 1200mV 100C Model Hold 'enet_rx_clk_125m'
-Slack : 0.346
+Slack : 0.350
 TNS   : 0.000
 
 Type  : Slow 1200mV 100C Model Hold 'enet_rx_clk_25m'
-Slack : 0.346
+Slack : 0.350
 TNS   : 0.000
 
 Type  : Slow 1200mV 100C Model Hold 'enet_rx_clk_2m5'
-Slack : 0.346
+Slack : 0.350
+TNS   : 0.000
+
+Type  : Slow 1200mV 100C Model Hold 'q_sys_inst|sll_hyperbus_controller_top_0|U_IO|pll_.U_SLL_HBC_T001_PLL|altpll_component|auto_generated|pll1|clk[3]'
+Slack : 0.399
 TNS   : 0.000
 
 Type  : Slow 1200mV 100C Model Hold 'q_sys_inst|enet_pll|sd1|pll7|clk[1]'
@@ -106,16 +106,12 @@ Type  : Slow 1200mV 100C Model Hold 'q_sys_inst|enet_pll|sd1|pll7|clk[2]'
 Slack : 0.403
 TNS   : 0.000
 
-Type  : Slow 1200mV 100C Model Hold 'enet_tx_clk_125m'
-Slack : 0.414
-TNS   : 0.000
-
 Type  : Slow 1200mV 100C Model Hold 'altera_reserved_tck'
-Slack : 0.416
+Slack : 0.417
 TNS   : 0.000
 
 Type  : Slow 1200mV 100C Model Hold 'hbus_clk_50m'
-Slack : 0.418
+Slack : 0.417
 TNS   : 0.000
 
 Type  : Slow 1200mV 100C Model Hold 'q_sys_inst|sll_hyperbus_controller_top_0|U_IO|pll_.U_SLL_HBC_T001_PLL|altpll_component|auto_generated|pll1|clk[0]'
@@ -127,103 +123,107 @@ Slack : 0.437
 TNS   : 0.000
 
 Type  : Slow 1200mV 100C Model Hold 'c10_clk50m'
-Slack : 0.613
+Slack : 0.442
+TNS   : 0.000
+
+Type  : Slow 1200mV 100C Model Hold 'enet_tx_clk_125m'
+Slack : 0.459
 TNS   : 0.000
 
 Type  : Slow 1200mV 100C Model Hold 'q_sys_inst|sll_hyperbus_controller_top_0|U_IO|pll_.U_SLL_HBC_T001_PLL|altpll_component|auto_generated|pll1|clk[1]'
-Slack : 2.741
+Slack : 2.377
 TNS   : 0.000
 
 Type  : Slow 1200mV 100C Model Hold 'q_sys_inst|sll_hyperbus_controller_top_0|U_IO|pll_.U_SLL_HBC_T001_PLL|altpll_component|auto_generated|pll1|clk[2]'
-Slack : 5.217
+Slack : 4.454
 TNS   : 0.000
 
 Type  : Slow 1200mV 100C Model Hold 'enet_tx_clk_25m'
-Slack : 8.387
+Slack : 8.466
 TNS   : 0.000
 
 Type  : Slow 1200mV 100C Model Hold 'enet_tx_clk_2m5'
-Slack : 104.504
+Slack : 105.852
 TNS   : 0.000
 
 Type  : Slow 1200mV 100C Model Recovery 'q_sys_inst|sll_hyperbus_controller_top_0|U_IO|pll_.U_SLL_HBC_T001_PLL|altpll_component|auto_generated|pll1|clk[2]'
-Slack : 0.215
+Slack : 0.441
 TNS   : 0.000
 
 Type  : Slow 1200mV 100C Model Recovery 'q_sys_inst|sll_hyperbus_controller_top_0|U_IO|pll_.U_SLL_HBC_T001_PLL|altpll_component|auto_generated|pll1|clk[0]'
-Slack : 3.654
-TNS   : 0.000
-
-Type  : Slow 1200mV 100C Model Recovery 'q_sys_inst|enet_pll|sd1|pll7|clk[0]'
-Slack : 3.723
+Slack : 3.391
 TNS   : 0.000
 
 Type  : Slow 1200mV 100C Model Recovery 'enet_rx_clk_125m'
-Slack : 4.332
+Slack : 3.986
+TNS   : 0.000
+
+Type  : Slow 1200mV 100C Model Recovery 'q_sys_inst|enet_pll|sd1|pll7|clk[0]'
+Slack : 4.277
 TNS   : 0.000
 
 Type  : Slow 1200mV 100C Model Recovery 'q_sys_inst|sll_hyperbus_controller_top_0|U_IO|pll_.U_SLL_HBC_T001_PLL|altpll_component|auto_generated|pll1|clk[3]'
-Slack : 7.160
+Slack : 6.604
 TNS   : 0.000
 
 Type  : Slow 1200mV 100C Model Recovery 'q_sys_inst|enet_pll|sd1|pll7|clk[1]'
-Slack : 16.942
+Slack : 16.973
 TNS   : 0.000
 
 Type  : Slow 1200mV 100C Model Recovery 'altera_reserved_tck'
-Slack : 18.483
+Slack : 18.184
 TNS   : 0.000
 
 Type  : Slow 1200mV 100C Model Recovery 'enet_rx_clk_25m'
-Slack : 36.332
+Slack : 35.986
 TNS   : 0.000
 
 Type  : Slow 1200mV 100C Model Recovery 'enet_rx_clk_2m5'
-Slack : 96.806
+Slack : 96.108
 TNS   : 0.000
 
 Type  : Slow 1200mV 100C Model Recovery 'q_sys_inst|enet_pll|sd1|pll7|clk[2]'
-Slack : 96.855
-TNS   : 0.000
-
-Type  : Slow 1200mV 100C Model Removal 'q_sys_inst|enet_pll|sd1|pll7|clk[1]'
-Slack : 1.032
-TNS   : 0.000
-
-Type  : Slow 1200mV 100C Model Removal 'enet_rx_clk_125m'
-Slack : 1.061
-TNS   : 0.000
-
-Type  : Slow 1200mV 100C Model Removal 'enet_rx_clk_25m'
-Slack : 1.061
-TNS   : 0.000
-
-Type  : Slow 1200mV 100C Model Removal 'enet_rx_clk_2m5'
-Slack : 1.061
+Slack : 96.970
 TNS   : 0.000
 
 Type  : Slow 1200mV 100C Model Removal 'q_sys_inst|sll_hyperbus_controller_top_0|U_IO|pll_.U_SLL_HBC_T001_PLL|altpll_component|auto_generated|pll1|clk[3]'
-Slack : 1.208
+Slack : 1.034
 TNS   : 0.000
 
-Type  : Slow 1200mV 100C Model Removal 'altera_reserved_tck'
-Slack : 1.286
+Type  : Slow 1200mV 100C Model Removal 'enet_rx_clk_125m'
+Slack : 1.249
+TNS   : 0.000
+
+Type  : Slow 1200mV 100C Model Removal 'enet_rx_clk_25m'
+Slack : 1.249
+TNS   : 0.000
+
+Type  : Slow 1200mV 100C Model Removal 'enet_rx_clk_2m5'
+Slack : 1.249
 TNS   : 0.000
 
 Type  : Slow 1200mV 100C Model Removal 'q_sys_inst|enet_pll|sd1|pll7|clk[0]'
-Slack : 1.462
+Slack : 1.398
+TNS   : 0.000
+
+Type  : Slow 1200mV 100C Model Removal 'q_sys_inst|enet_pll|sd1|pll7|clk[1]'
+Slack : 1.398
 TNS   : 0.000
 
 Type  : Slow 1200mV 100C Model Removal 'q_sys_inst|enet_pll|sd1|pll7|clk[2]'
-Slack : 1.462
+Slack : 1.398
+TNS   : 0.000
+
+Type  : Slow 1200mV 100C Model Removal 'altera_reserved_tck'
+Slack : 1.431
 TNS   : 0.000
 
 Type  : Slow 1200mV 100C Model Removal 'q_sys_inst|sll_hyperbus_controller_top_0|U_IO|pll_.U_SLL_HBC_T001_PLL|altpll_component|auto_generated|pll1|clk[0]'
-Slack : 1.469
+Slack : 1.502
 TNS   : 0.000
 
 Type  : Slow 1200mV 100C Model Removal 'q_sys_inst|sll_hyperbus_controller_top_0|U_IO|pll_.U_SLL_HBC_T001_PLL|altpll_component|auto_generated|pll1|clk[2]'
-Slack : 5.486
+Slack : 5.217
 TNS   : 0.000
 
 Type  : Slow 1200mV 100C Model Minimum Pulse Width 'q_sys_inst|sll_hyperbus_controller_top_0|U_IO|pll_.U_SLL_HBC_T001_PLL|altpll_component|auto_generated|pll1|clk[1]'
@@ -247,11 +247,11 @@ Slack : 3.158
 TNS   : 0.000
 
 Type  : Slow 1200mV 100C Model Minimum Pulse Width 'enet_rx_clk_125m'
-Slack : 3.506
+Slack : 3.509
 TNS   : 0.000
 
 Type  : Slow 1200mV 100C Model Minimum Pulse Width 'q_sys_inst|enet_pll|sd1|pll7|clk[0]'
-Slack : 3.665
+Slack : 3.672
 TNS   : 0.000
 
 Type  : Slow 1200mV 100C Model Minimum Pulse Width 'enet_tx_clk_125m'
@@ -259,7 +259,7 @@ Slack : 3.790
 TNS   : 0.000
 
 Type  : Slow 1200mV 100C Model Minimum Pulse Width 'q_sys_inst|enet_pll|sd1|pll7|clk[3]'
-Slack : 3.799
+Slack : 3.808
 TNS   : 0.000
 
 Type  : Slow 1200mV 100C Model Minimum Pulse Width 'enet_clk_125m'
@@ -270,40 +270,40 @@ Type  : Slow 1200mV 100C Model Minimum Pulse Width 'q_sys_inst|sll_hyperbus_cont
 Slack : 6.233
 TNS   : 0.000
 
+Type  : Slow 1200mV 100C Model Minimum Pulse Width 'c10_clk50m'
+Slack : 9.633
+TNS   : 0.000
+
 Type  : Slow 1200mV 100C Model Minimum Pulse Width 'hbus_clk_50m'
 Slack : 9.634
 TNS   : 0.000
 
-Type  : Slow 1200mV 100C Model Minimum Pulse Width 'c10_clk50m'
-Slack : 9.635
-TNS   : 0.000
-
 Type  : Slow 1200mV 100C Model Minimum Pulse Width 'q_sys_inst|enet_pll|sd1|pll7|clk[1]'
-Slack : 9.642
+Slack : 9.659
 TNS   : 0.000
 
 Type  : Slow 1200mV 100C Model Minimum Pulse Width 'enet_rx_clk_25m'
-Slack : 19.506
+Slack : 19.509
 TNS   : 0.000
 
 Type  : Slow 1200mV 100C Model Minimum Pulse Width 'q_sys_inst|enet_pll|sd1|pll7|clk[4]'
-Slack : 19.791
+Slack : 19.792
 TNS   : 0.000
 
 Type  : Slow 1200mV 100C Model Minimum Pulse Width 'enet_tx_clk_25m'
-Slack : 19.880
+Slack : 19.874
 TNS   : 0.000
 
 Type  : Slow 1200mV 100C Model Minimum Pulse Width 'altera_reserved_tck'
-Slack : 20.444
+Slack : 20.443
 TNS   : 0.000
 
 Type  : Slow 1200mV 100C Model Minimum Pulse Width 'enet_rx_clk_2m5'
-Slack : 199.506
+Slack : 199.509
 TNS   : 0.000
 
 Type  : Slow 1200mV 100C Model Minimum Pulse Width 'q_sys_inst|enet_pll|sd1|pll7|clk[2]'
-Slack : 199.641
+Slack : 199.662
 TNS   : 0.000
 
 Type  : Slow 1200mV 100C Model Minimum Pulse Width 'enet_tx_clk_2m5'
@@ -311,127 +311,127 @@ Slack : 200.000
 TNS   : 0.000
 
 Type  : Slow 1200mV 100C Model Max Skew 'set_max_skew'
-Slack : 5.514
+Slack : 5.012
 
 Type  : Slow 1200mV 100C Model Max Skew 'set_max_skew'
-Slack : 5.590
+Slack : 5.339
 
 Type  : Slow 1200mV 100C Model Max Skew 'set_max_skew'
-Slack : 5.637
+Slack : 5.682
 
 Type  : Slow 1200mV 100C Model Max Skew 'set_max_skew'
-Slack : 5.713
+Slack : 5.745
 
 Type  : Slow 1200mV 100C Model Max Skew 'set_max_skew'
-Slack : 5.750
+Slack : 5.812
 
 Type  : Slow 1200mV 100C Model Max Skew 'set_max_skew'
-Slack : 5.931
+Slack : 5.949
 
 Type  : Slow 1200mV 100C Model Max Skew 'set_max_skew'
-Slack : 6.119
+Slack : 6.059
 
 Type  : Slow 1200mV 100C Model Max Skew 'set_max_skew'
-Slack : 6.242
+Slack : 6.349
 
 Type  : Slow 1200mV 100C Model Max Skew 'set_max_skew'
-Slack : 6.279
+Slack : 6.362
 
 Type  : Slow 1200mV 100C Model Max Skew 'set_max_skew'
-Slack : 6.323
+Slack : 6.546
 
 Type  : Slow 1200mV 100C Model Max Skew 'set_max_skew'
-Slack : 6.446
+Slack : 6.592
 
 Type  : Slow 1200mV 100C Model Max Skew 'set_max_skew'
-Slack : 6.511
+Slack : 6.670
 
 Type  : Slow 1200mV 100C Model Net Delay 'set_net_delay'
-Slack : 1.928
+Slack : 2.222
 
 Type  : Slow 1200mV 100C Model Net Delay 'set_net_delay'
-Slack : 2.438
+Slack : 2.401
 
 Type  : Slow 1200mV 100C Model Net Delay 'set_net_delay'
-Slack : 4.531
+Slack : 4.477
 
 Type  : Slow 1200mV 100C Model Net Delay 'set_net_delay'
-Slack : 4.734
+Slack : 4.602
 
 Type  : Slow 1200mV 100C Model Net Delay 'set_net_delay'
-Slack : 4.747
+Slack : 4.691
 
 Type  : Slow 1200mV 100C Model Net Delay 'set_net_delay'
-Slack : 4.774
+Slack : 4.754
 
 Type  : Slow 1200mV 100C Model Net Delay 'set_net_delay'
-Slack : 4.782
+Slack : 4.935
 
 Type  : Slow 1200mV 100C Model Net Delay 'set_net_delay'
-Slack : 4.930
+Slack : 4.978
 
 Type  : Slow 1200mV 100C Model Net Delay 'set_net_delay'
-Slack : 5.026
+Slack : 5.010
 
 Type  : Slow 1200mV 100C Model Net Delay 'set_net_delay'
-Slack : 5.065
+Slack : 5.106
 
 Type  : Slow 1200mV 100C Model Net Delay 'set_net_delay'
-Slack : 7.211
+Slack : 6.776
 
 Type  : Slow 1200mV 100C Model Net Delay 'set_net_delay'
-Slack : 8.054
+Slack : 7.642
+
+Type  : Slow 1200mV 0C Model Setup 'q_sys_inst|sll_hyperbus_controller_top_0|U_IO|pll_.U_SLL_HBC_T001_PLL|altpll_component|auto_generated|pll1|clk[3]'
+Slack : -0.259
+TNS   : -0.816
 
 Type  : Slow 1200mV 0C Model Setup 'clkout0'
-Slack : 0.027
-TNS   : 0.000
-
-Type  : Slow 1200mV 0C Model Setup 'q_sys_inst|sll_hyperbus_controller_top_0|U_IO|pll_.U_SLL_HBC_T001_PLL|altpll_component|auto_generated|pll1|clk[2]'
-Slack : 0.657
+Slack : 0.420
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Setup 'enet_tx_clk_125m'
-Slack : 0.680
+Slack : 0.572
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Setup 'rds_clk0'
-Slack : 0.946
+Slack : 0.826
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Setup 'enet_rx_clk_125m'
-Slack : 1.071
+Slack : 1.075
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Setup 'q_sys_inst|sll_hyperbus_controller_top_0|U_IO|pll_.U_SLL_HBC_T001_PLL|altpll_component|auto_generated|pll1|clk[1]'
-Slack : 1.236
+Slack : 1.309
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Setup 'q_sys_inst|sll_hyperbus_controller_top_0|U_IO|pll_.U_SLL_HBC_T001_PLL|altpll_component|auto_generated|pll1|clk[2]'
+Slack : 1.404
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Setup 'q_sys_inst|sll_hyperbus_controller_top_0|U_IO|pll_.U_SLL_HBC_T001_PLL|altpll_component|auto_generated|pll1|clk[0]'
-Slack : 1.976
-TNS   : 0.000
-
-Type  : Slow 1200mV 0C Model Setup 'q_sys_inst|sll_hyperbus_controller_top_0|U_IO|pll_.U_SLL_HBC_T001_PLL|altpll_component|auto_generated|pll1|clk[3]'
-Slack : 2.256
+Slack : 1.906
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Setup 'q_sys_inst|enet_pll|sd1|pll7|clk[0]'
-Slack : 2.828
+Slack : 2.182
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Setup 'altera_reserved_tck'
-Slack : 4.546
+Slack : 4.676
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Setup 'enet_tx_clk_25m'
-Slack : 8.730
+Slack : 8.616
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Setup 'enet_rx_clk_25m'
-Slack : 9.071
+Slack : 9.075
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Setup 'q_sys_inst|enet_pll|sd1|pll7|clk[1]'
-Slack : 10.817
+Slack : 10.185
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Setup 'hbus_clk_50m'
@@ -439,51 +439,51 @@ Slack : 17.102
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Setup 'c10_clk50m'
-Slack : 18.332
+Slack : 19.225
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Setup 'enet_tx_clk_2m5'
-Slack : 93.190
+Slack : 91.910
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Setup 'enet_rx_clk_2m5'
-Slack : 99.071
+Slack : 99.075
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Setup 'q_sys_inst|enet_pll|sd1|pll7|clk[2]'
-Slack : 99.939
-TNS   : 0.000
-
-Type  : Slow 1200mV 0C Model Hold 'q_sys_inst|sll_hyperbus_controller_top_0|U_IO|pll_.U_SLL_HBC_T001_PLL|altpll_component|auto_generated|pll1|clk[3]'
-Slack : 0.286
-TNS   : 0.000
-
-Type  : Slow 1200mV 0C Model Hold 'enet_rx_clk_125m'
-Slack : 0.344
-TNS   : 0.000
-
-Type  : Slow 1200mV 0C Model Hold 'enet_rx_clk_25m'
-Slack : 0.344
-TNS   : 0.000
-
-Type  : Slow 1200mV 0C Model Hold 'enet_rx_clk_2m5'
-Slack : 0.344
+Slack : 101.239
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'q_sys_inst|enet_pll|sd1|pll7|clk[1]'
+Slack : 0.347
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'q_sys_inst|sll_hyperbus_controller_top_0|U_IO|pll_.U_SLL_HBC_T001_PLL|altpll_component|auto_generated|pll1|clk[3]'
+Slack : 0.347
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'enet_rx_clk_125m'
+Slack : 0.348
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'enet_rx_clk_25m'
+Slack : 0.348
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'enet_rx_clk_2m5'
 Slack : 0.348
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'q_sys_inst|enet_pll|sd1|pll7|clk[0]'
-Slack : 0.358
+Slack : 0.357
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'q_sys_inst|enet_pll|sd1|pll7|clk[2]'
-Slack : 0.358
+Slack : 0.357
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'altera_reserved_tck'
-Slack : 0.361
+Slack : 0.362
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'hbus_clk_50m'
@@ -498,112 +498,112 @@ Type  : Slow 1200mV 0C Model Hold 'rds_clk0'
 Slack : 0.364
 TNS   : 0.000
 
+Type  : Slow 1200mV 0C Model Hold 'c10_clk50m'
+Slack : 0.405
+TNS   : 0.000
+
 Type  : Slow 1200mV 0C Model Hold 'enet_tx_clk_125m'
-Slack : 0.430
+Slack : 0.409
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'clkout0'
 Slack : 0.454
 TNS   : 0.000
 
-Type  : Slow 1200mV 0C Model Hold 'c10_clk50m'
-Slack : 0.557
-TNS   : 0.000
-
 Type  : Slow 1200mV 0C Model Hold 'q_sys_inst|sll_hyperbus_controller_top_0|U_IO|pll_.U_SLL_HBC_T001_PLL|altpll_component|auto_generated|pll1|clk[1]'
-Slack : 2.624
+Slack : 2.340
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'q_sys_inst|sll_hyperbus_controller_top_0|U_IO|pll_.U_SLL_HBC_T001_PLL|altpll_component|auto_generated|pll1|clk[2]'
-Slack : 5.059
+Slack : 4.329
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'enet_tx_clk_25m'
-Slack : 8.422
+Slack : 8.445
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'enet_tx_clk_2m5'
-Slack : 103.943
+Slack : 105.145
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Recovery 'q_sys_inst|sll_hyperbus_controller_top_0|U_IO|pll_.U_SLL_HBC_T001_PLL|altpll_component|auto_generated|pll1|clk[2]'
-Slack : 0.481
+Slack : 0.691
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Recovery 'q_sys_inst|sll_hyperbus_controller_top_0|U_IO|pll_.U_SLL_HBC_T001_PLL|altpll_component|auto_generated|pll1|clk[0]'
-Slack : 3.907
-TNS   : 0.000
-
-Type  : Slow 1200mV 0C Model Recovery 'q_sys_inst|enet_pll|sd1|pll7|clk[0]'
-Slack : 4.062
+Slack : 3.671
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Recovery 'enet_rx_clk_125m'
-Slack : 4.680
+Slack : 4.338
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Recovery 'q_sys_inst|enet_pll|sd1|pll7|clk[0]'
+Slack : 4.624
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Recovery 'q_sys_inst|sll_hyperbus_controller_top_0|U_IO|pll_.U_SLL_HBC_T001_PLL|altpll_component|auto_generated|pll1|clk[3]'
-Slack : 7.814
+Slack : 7.345
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Recovery 'q_sys_inst|enet_pll|sd1|pll7|clk[1]'
-Slack : 17.223
+Slack : 17.213
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Recovery 'altera_reserved_tck'
-Slack : 18.816
+Slack : 18.518
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Recovery 'enet_rx_clk_25m'
-Slack : 36.680
-TNS   : 0.000
-
-Type  : Slow 1200mV 0C Model Recovery 'q_sys_inst|enet_pll|sd1|pll7|clk[2]'
-Slack : 97.125
+Slack : 36.338
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Recovery 'enet_rx_clk_2m5'
-Slack : 97.164
+Slack : 96.433
 TNS   : 0.000
 
-Type  : Slow 1200mV 0C Model Removal 'q_sys_inst|enet_pll|sd1|pll7|clk[1]'
-Slack : 0.934
-TNS   : 0.000
-
-Type  : Slow 1200mV 0C Model Removal 'enet_rx_clk_125m'
-Slack : 0.963
-TNS   : 0.000
-
-Type  : Slow 1200mV 0C Model Removal 'enet_rx_clk_25m'
-Slack : 0.963
-TNS   : 0.000
-
-Type  : Slow 1200mV 0C Model Removal 'enet_rx_clk_2m5'
-Slack : 0.963
+Type  : Slow 1200mV 0C Model Recovery 'q_sys_inst|enet_pll|sd1|pll7|clk[2]'
+Slack : 97.243
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Removal 'q_sys_inst|sll_hyperbus_controller_top_0|U_IO|pll_.U_SLL_HBC_T001_PLL|altpll_component|auto_generated|pll1|clk[3]'
-Slack : 1.100
+Slack : 0.936
 TNS   : 0.000
 
-Type  : Slow 1200mV 0C Model Removal 'altera_reserved_tck'
-Slack : 1.176
+Type  : Slow 1200mV 0C Model Removal 'enet_rx_clk_125m'
+Slack : 1.144
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Removal 'enet_rx_clk_25m'
+Slack : 1.144
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Removal 'enet_rx_clk_2m5'
+Slack : 1.144
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Removal 'q_sys_inst|enet_pll|sd1|pll7|clk[0]'
-Slack : 1.307
+Slack : 1.264
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Removal 'q_sys_inst|enet_pll|sd1|pll7|clk[1]'
+Slack : 1.264
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Removal 'q_sys_inst|enet_pll|sd1|pll7|clk[2]'
-Slack : 1.307
+Slack : 1.264
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Removal 'altera_reserved_tck'
+Slack : 1.310
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Removal 'q_sys_inst|sll_hyperbus_controller_top_0|U_IO|pll_.U_SLL_HBC_T001_PLL|altpll_component|auto_generated|pll1|clk[0]'
-Slack : 1.324
+Slack : 1.354
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Removal 'q_sys_inst|sll_hyperbus_controller_top_0|U_IO|pll_.U_SLL_HBC_T001_PLL|altpll_component|auto_generated|pll1|clk[2]'
-Slack : 5.260
+Slack : 5.017
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'q_sys_inst|sll_hyperbus_controller_top_0|U_IO|pll_.U_SLL_HBC_T001_PLL|altpll_component|auto_generated|pll1|clk[1]'
@@ -615,7 +615,7 @@ Slack : 2.666
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'q_sys_inst|sll_hyperbus_controller_top_0|U_IO|pll_.U_SLL_HBC_T001_PLL|altpll_component|auto_generated|pll1|clk[0]'
-Slack : 3.011
+Slack : 3.013
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'q_sys_inst|sll_hyperbus_controller_top_0|U_IO|pll_.U_SLL_HBC_T001_PLL|altpll_component|auto_generated|pll1|clk[2]'
@@ -631,15 +631,15 @@ Slack : 3.511
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'q_sys_inst|enet_pll|sd1|pll7|clk[0]'
-Slack : 3.615
+Slack : 3.577
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'q_sys_inst|enet_pll|sd1|pll7|clk[3]'
-Slack : 3.755
+Slack : 3.729
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'enet_tx_clk_125m'
-Slack : 3.790
+Slack : 3.787
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'enet_clk_125m'
@@ -650,16 +650,16 @@ Type  : Slow 1200mV 0C Model Minimum Pulse Width 'q_sys_inst|sll_hyperbus_contro
 Slack : 6.263
 TNS   : 0.000
 
-Type  : Slow 1200mV 0C Model Minimum Pulse Width 'c10_clk50m'
-Slack : 9.645
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'hbus_clk_50m'
+Slack : 9.647
 TNS   : 0.000
 
-Type  : Slow 1200mV 0C Model Minimum Pulse Width 'hbus_clk_50m'
-Slack : 9.646
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'c10_clk50m'
+Slack : 9.649
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'q_sys_inst|enet_pll|sd1|pll7|clk[1]'
-Slack : 9.776
+Slack : 9.766
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'enet_rx_clk_25m'
@@ -667,15 +667,15 @@ Slack : 19.511
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'q_sys_inst|enet_pll|sd1|pll7|clk[4]'
-Slack : 19.778
+Slack : 19.717
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'enet_tx_clk_25m'
-Slack : 19.836
+Slack : 19.775
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'altera_reserved_tck'
-Slack : 20.370
+Slack : 20.383
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'enet_rx_clk_2m5'
@@ -683,7 +683,7 @@ Slack : 199.511
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'q_sys_inst|enet_pll|sd1|pll7|clk[2]'
-Slack : 199.622
+Slack : 199.618
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'enet_tx_clk_2m5'
@@ -691,167 +691,167 @@ Slack : 200.000
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Max Skew 'set_max_skew'
-Slack : 5.662
+Slack : 5.223
 
 Type  : Slow 1200mV 0C Model Max Skew 'set_max_skew'
-Slack : 5.806
+Slack : 5.589
 
 Type  : Slow 1200mV 0C Model Max Skew 'set_max_skew'
-Slack : 5.816
+Slack : 5.877
 
 Type  : Slow 1200mV 0C Model Max Skew 'set_max_skew'
-Slack : 5.884
+Slack : 5.958
 
 Type  : Slow 1200mV 0C Model Max Skew 'set_max_skew'
-Slack : 5.897
+Slack : 5.972
 
 Type  : Slow 1200mV 0C Model Max Skew 'set_max_skew'
-Slack : 6.075
+Slack : 6.058
 
 Type  : Slow 1200mV 0C Model Max Skew 'set_max_skew'
-Slack : 6.251
+Slack : 6.230
 
 Type  : Slow 1200mV 0C Model Max Skew 'set_max_skew'
-Slack : 6.372
+Slack : 6.441
 
 Type  : Slow 1200mV 0C Model Max Skew 'set_max_skew'
-Slack : 6.409
+Slack : 6.458
 
 Type  : Slow 1200mV 0C Model Max Skew 'set_max_skew'
-Slack : 6.437
+Slack : 6.647
 
 Type  : Slow 1200mV 0C Model Max Skew 'set_max_skew'
-Slack : 6.548
+Slack : 6.673
 
 Type  : Slow 1200mV 0C Model Max Skew 'set_max_skew'
-Slack : 6.629
+Slack : 6.750
 
 Type  : Slow 1200mV 0C Model Net Delay 'set_net_delay'
-Slack : 2.077
+Slack : 2.528
 
 Type  : Slow 1200mV 0C Model Net Delay 'set_net_delay'
-Slack : 2.776
+Slack : 2.551
 
 Type  : Slow 1200mV 0C Model Net Delay 'set_net_delay'
-Slack : 4.661
+Slack : 4.590
 
 Type  : Slow 1200mV 0C Model Net Delay 'set_net_delay'
-Slack : 4.833
+Slack : 4.743
 
 Type  : Slow 1200mV 0C Model Net Delay 'set_net_delay'
-Slack : 4.881
+Slack : 4.813
 
 Type  : Slow 1200mV 0C Model Net Delay 'set_net_delay'
-Slack : 4.908
+Slack : 4.856
 
 Type  : Slow 1200mV 0C Model Net Delay 'set_net_delay'
-Slack : 4.915
+Slack : 5.043
 
 Type  : Slow 1200mV 0C Model Net Delay 'set_net_delay'
-Slack : 5.048
+Slack : 5.082
 
 Type  : Slow 1200mV 0C Model Net Delay 'set_net_delay'
-Slack : 5.123
+Slack : 5.090
 
 Type  : Slow 1200mV 0C Model Net Delay 'set_net_delay'
-Slack : 5.144
+Slack : 5.197
 
 Type  : Slow 1200mV 0C Model Net Delay 'set_net_delay'
-Slack : 7.479
+Slack : 7.204
 
 Type  : Slow 1200mV 0C Model Net Delay 'set_net_delay'
-Slack : 8.257
+Slack : 7.909
 
 Type  : Fast 1200mV 0C Model Setup 'rds_clk0'
-Slack : 0.202
+Slack : 0.072
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Setup 'enet_rx_clk_125m'
-Slack : 0.487
+Slack : 0.492
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Setup 'clkout0'
-Slack : 0.554
+Slack : 0.555
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Setup 'enet_tx_clk_125m'
-Slack : 0.807
-TNS   : 0.000
-
-Type  : Fast 1200mV 0C Model Setup 'q_sys_inst|sll_hyperbus_controller_top_0|U_IO|pll_.U_SLL_HBC_T001_PLL|altpll_component|auto_generated|pll1|clk[2]'
-Slack : 1.823
+Slack : 0.738
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Setup 'q_sys_inst|sll_hyperbus_controller_top_0|U_IO|pll_.U_SLL_HBC_T001_PLL|altpll_component|auto_generated|pll1|clk[1]'
-Slack : 2.130
+Slack : 2.219
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'q_sys_inst|sll_hyperbus_controller_top_0|U_IO|pll_.U_SLL_HBC_T001_PLL|altpll_component|auto_generated|pll1|clk[2]'
+Slack : 2.300
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Setup 'q_sys_inst|sll_hyperbus_controller_top_0|U_IO|pll_.U_SLL_HBC_T001_PLL|altpll_component|auto_generated|pll1|clk[0]'
-Slack : 4.323
+Slack : 4.272
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Setup 'q_sys_inst|enet_pll|sd1|pll7|clk[0]'
-Slack : 5.148
+Slack : 4.761
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Setup 'q_sys_inst|sll_hyperbus_controller_top_0|U_IO|pll_.U_SLL_HBC_T001_PLL|altpll_component|auto_generated|pll1|clk[3]'
-Slack : 7.219
+Slack : 6.131
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Setup 'enet_rx_clk_25m'
-Slack : 8.487
+Slack : 8.492
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Setup 'enet_tx_clk_25m'
-Slack : 8.780
+Slack : 8.693
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Setup 'altera_reserved_tck'
-Slack : 9.077
+Slack : 9.153
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Setup 'q_sys_inst|enet_pll|sd1|pll7|clk[1]'
-Slack : 15.279
+Slack : 14.918
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Setup 'hbus_clk_50m'
-Slack : 18.420
+Slack : 18.421
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Setup 'c10_clk50m'
-Slack : 19.081
+Slack : 19.577
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Setup 'enet_tx_clk_2m5'
-Slack : 95.629
+Slack : 94.956
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Setup 'enet_rx_clk_2m5'
-Slack : 98.487
+Slack : 98.492
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Setup 'q_sys_inst|enet_pll|sd1|pll7|clk[2]'
-Slack : 99.907
-TNS   : 0.000
-
-Type  : Fast 1200mV 0C Model Hold 'q_sys_inst|sll_hyperbus_controller_top_0|U_IO|pll_.U_SLL_HBC_T001_PLL|altpll_component|auto_generated|pll1|clk[3]'
-Slack : 0.106
+Slack : 100.559
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'enet_rx_clk_125m'
-Slack : 0.139
+Slack : 0.141
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'enet_rx_clk_25m'
-Slack : 0.139
+Slack : 0.141
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'enet_rx_clk_2m5'
-Slack : 0.139
+Slack : 0.141
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'q_sys_inst|enet_pll|sd1|pll7|clk[1]'
 Slack : 0.178
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'q_sys_inst|sll_hyperbus_controller_top_0|U_IO|pll_.U_SLL_HBC_T001_PLL|altpll_component|auto_generated|pll1|clk[3]'
+Slack : 0.179
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'altera_reserved_tck'
@@ -862,16 +862,16 @@ Type  : Fast 1200mV 0C Model Hold 'hbus_clk_50m'
 Slack : 0.186
 TNS   : 0.000
 
-Type  : Fast 1200mV 0C Model Hold 'rds_clk0'
+Type  : Fast 1200mV 0C Model Hold 'q_sys_inst|enet_pll|sd1|pll7|clk[0]'
 Slack : 0.186
 TNS   : 0.000
 
-Type  : Fast 1200mV 0C Model Hold 'q_sys_inst|enet_pll|sd1|pll7|clk[0]'
-Slack : 0.187
+Type  : Fast 1200mV 0C Model Hold 'q_sys_inst|enet_pll|sd1|pll7|clk[2]'
+Slack : 0.186
 TNS   : 0.000
 
-Type  : Fast 1200mV 0C Model Hold 'q_sys_inst|enet_pll|sd1|pll7|clk[2]'
-Slack : 0.187
+Type  : Fast 1200mV 0C Model Hold 'rds_clk0'
+Slack : 0.186
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'q_sys_inst|sll_hyperbus_controller_top_0|U_IO|pll_.U_SLL_HBC_T001_PLL|altpll_component|auto_generated|pll1|clk[0]'
@@ -879,7 +879,7 @@ Slack : 0.187
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'c10_clk50m'
-Slack : 0.267
+Slack : 0.194
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'clkout0'
@@ -887,103 +887,103 @@ Slack : 0.545
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'enet_tx_clk_125m'
-Slack : 0.689
+Slack : 0.636
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'q_sys_inst|sll_hyperbus_controller_top_0|U_IO|pll_.U_SLL_HBC_T001_PLL|altpll_component|auto_generated|pll1|clk[1]'
-Slack : 2.096
+Slack : 1.919
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'q_sys_inst|sll_hyperbus_controller_top_0|U_IO|pll_.U_SLL_HBC_T001_PLL|altpll_component|auto_generated|pll1|clk[2]'
-Slack : 4.223
+Slack : 3.842
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'enet_tx_clk_25m'
-Slack : 8.774
+Slack : 8.859
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'enet_tx_clk_2m5'
-Slack : 101.866
+Slack : 102.537
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Recovery 'q_sys_inst|sll_hyperbus_controller_top_0|U_IO|pll_.U_SLL_HBC_T001_PLL|altpll_component|auto_generated|pll1|clk[2]'
-Slack : 1.755
+Slack : 1.927
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Recovery 'q_sys_inst|sll_hyperbus_controller_top_0|U_IO|pll_.U_SLL_HBC_T001_PLL|altpll_component|auto_generated|pll1|clk[0]'
-Slack : 5.077
-TNS   : 0.000
-
-Type  : Fast 1200mV 0C Model Recovery 'q_sys_inst|enet_pll|sd1|pll7|clk[0]'
-Slack : 5.762
+Slack : 4.926
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Recovery 'enet_rx_clk_125m'
-Slack : 6.065
+Slack : 5.816
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Recovery 'q_sys_inst|enet_pll|sd1|pll7|clk[0]'
+Slack : 6.108
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Recovery 'q_sys_inst|sll_hyperbus_controller_top_0|U_IO|pll_.U_SLL_HBC_T001_PLL|altpll_component|auto_generated|pll1|clk[3]'
-Slack : 9.950
+Slack : 9.706
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Recovery 'q_sys_inst|enet_pll|sd1|pll7|clk[1]'
-Slack : 18.425
+Slack : 18.437
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Recovery 'altera_reserved_tck'
-Slack : 19.961
+Slack : 19.798
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Recovery 'enet_rx_clk_25m'
-Slack : 38.065
-TNS   : 0.000
-
-Type  : Fast 1200mV 0C Model Recovery 'q_sys_inst|enet_pll|sd1|pll7|clk[2]'
-Slack : 98.293
+Slack : 37.816
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Recovery 'enet_rx_clk_2m5'
-Slack : 98.301
+Slack : 97.890
 TNS   : 0.000
 
-Type  : Fast 1200mV 0C Model Removal 'q_sys_inst|enet_pll|sd1|pll7|clk[1]'
-Slack : 0.489
-TNS   : 0.000
-
-Type  : Fast 1200mV 0C Model Removal 'enet_rx_clk_125m'
-Slack : 0.500
-TNS   : 0.000
-
-Type  : Fast 1200mV 0C Model Removal 'enet_rx_clk_25m'
-Slack : 0.500
-TNS   : 0.000
-
-Type  : Fast 1200mV 0C Model Removal 'enet_rx_clk_2m5'
-Slack : 0.500
+Type  : Fast 1200mV 0C Model Recovery 'q_sys_inst|enet_pll|sd1|pll7|clk[2]'
+Slack : 98.377
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Removal 'q_sys_inst|sll_hyperbus_controller_top_0|U_IO|pll_.U_SLL_HBC_T001_PLL|altpll_component|auto_generated|pll1|clk[3]'
-Slack : 0.573
+Slack : 0.490
 TNS   : 0.000
 
-Type  : Fast 1200mV 0C Model Removal 'altera_reserved_tck'
-Slack : 0.604
+Type  : Fast 1200mV 0C Model Removal 'enet_rx_clk_125m'
+Slack : 0.582
 TNS   : 0.000
 
-Type  : Fast 1200mV 0C Model Removal 'q_sys_inst|sll_hyperbus_controller_top_0|U_IO|pll_.U_SLL_HBC_T001_PLL|altpll_component|auto_generated|pll1|clk[0]'
-Slack : 0.687
+Type  : Fast 1200mV 0C Model Removal 'enet_rx_clk_25m'
+Slack : 0.582
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Removal 'enet_rx_clk_2m5'
+Slack : 0.582
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Removal 'q_sys_inst|enet_pll|sd1|pll7|clk[0]'
-Slack : 0.694
+Slack : 0.653
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Removal 'q_sys_inst|enet_pll|sd1|pll7|clk[1]'
+Slack : 0.653
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Removal 'q_sys_inst|enet_pll|sd1|pll7|clk[2]'
-Slack : 0.694
+Slack : 0.653
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Removal 'altera_reserved_tck'
+Slack : 0.679
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Removal 'q_sys_inst|sll_hyperbus_controller_top_0|U_IO|pll_.U_SLL_HBC_T001_PLL|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 0.697
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Removal 'q_sys_inst|sll_hyperbus_controller_top_0|U_IO|pll_.U_SLL_HBC_T001_PLL|altpll_component|auto_generated|pll1|clk[2]'
-Slack : 4.351
+Slack : 4.221
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'q_sys_inst|sll_hyperbus_controller_top_0|U_IO|pll_.U_SLL_HBC_T001_PLL|altpll_component|auto_generated|pll1|clk[1]'
@@ -995,19 +995,19 @@ Slack : 2.666
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'q_sys_inst|sll_hyperbus_controller_top_0|U_IO|pll_.U_SLL_HBC_T001_PLL|altpll_component|auto_generated|pll1|clk[0]'
-Slack : 3.064
+Slack : 3.063
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'q_sys_inst|sll_hyperbus_controller_top_0|U_IO|pll_.U_SLL_HBC_T001_PLL|altpll_component|auto_generated|pll1|clk[2]'
-Slack : 3.142
+Slack : 3.143
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'enet_rx_clk_125m'
-Slack : 3.179
+Slack : 3.180
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clkout0'
-Slack : 3.329
+Slack : 3.330
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'enet_clk_125m'
@@ -1015,23 +1015,23 @@ Slack : 3.416
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'q_sys_inst|enet_pll|sd1|pll7|clk[0]'
-Slack : 3.661
+Slack : 3.586
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'q_sys_inst|enet_pll|sd1|pll7|clk[3]'
-Slack : 3.738
+Slack : 3.667
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'enet_tx_clk_125m'
-Slack : 3.961
+Slack : 3.890
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'q_sys_inst|sll_hyperbus_controller_top_0|U_IO|pll_.U_SLL_HBC_T001_PLL|altpll_component|auto_generated|pll1|clk[3]'
-Slack : 6.386
+Slack : 6.274
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'c10_clk50m'
-Slack : 9.248
+Slack : 9.249
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'hbus_clk_50m'
@@ -1039,31 +1039,31 @@ Slack : 9.250
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'q_sys_inst|enet_pll|sd1|pll7|clk[1]'
-Slack : 9.768
+Slack : 9.803
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'enet_rx_clk_25m'
-Slack : 19.179
+Slack : 19.180
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'q_sys_inst|enet_pll|sd1|pll7|clk[4]'
-Slack : 19.711
+Slack : 19.643
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'enet_tx_clk_25m'
-Slack : 19.934
+Slack : 19.866
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'altera_reserved_tck'
-Slack : 20.173
+Slack : 20.166
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'enet_rx_clk_2m5'
-Slack : 199.179
+Slack : 199.180
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'q_sys_inst|enet_pll|sd1|pll7|clk[2]'
-Slack : 199.704
+Slack : 199.650
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'enet_tx_clk_2m5'
@@ -1071,75 +1071,75 @@ Slack : 200.000
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Max Skew 'set_max_skew'
-Slack : 6.423
+Slack : 6.161
 
 Type  : Fast 1200mV 0C Model Max Skew 'set_max_skew'
-Slack : 6.514
+Slack : 6.338
 
 Type  : Fast 1200mV 0C Model Max Skew 'set_max_skew'
-Slack : 6.533
+Slack : 6.541
 
 Type  : Fast 1200mV 0C Model Max Skew 'set_max_skew'
-Slack : 6.534
+Slack : 6.601
 
 Type  : Fast 1200mV 0C Model Max Skew 'set_max_skew'
-Slack : 6.569
+Slack : 6.609
 
 Type  : Fast 1200mV 0C Model Max Skew 'set_max_skew'
-Slack : 6.632
+Slack : 6.646
 
 Type  : Fast 1200mV 0C Model Max Skew 'set_max_skew'
-Slack : 6.752
+Slack : 6.702
 
 Type  : Fast 1200mV 0C Model Max Skew 'set_max_skew'
-Slack : 6.808
+Slack : 6.873
 
 Type  : Fast 1200mV 0C Model Max Skew 'set_max_skew'
-Slack : 6.841
+Slack : 6.879
 
 Type  : Fast 1200mV 0C Model Max Skew 'set_max_skew'
-Slack : 6.872
+Slack : 6.976
 
 Type  : Fast 1200mV 0C Model Max Skew 'set_max_skew'
-Slack : 6.967
+Slack : 7.045
 
 Type  : Fast 1200mV 0C Model Max Skew 'set_max_skew'
-Slack : 6.975
+Slack : 7.059
 
 Type  : Fast 1200mV 0C Model Net Delay 'set_net_delay'
-Slack : 2.915
+Slack : 3.156
 
 Type  : Fast 1200mV 0C Model Net Delay 'set_net_delay'
-Slack : 4.061
+Slack : 3.957
 
 Type  : Fast 1200mV 0C Model Net Delay 'set_net_delay'
-Slack : 5.268
+Slack : 5.193
 
 Type  : Fast 1200mV 0C Model Net Delay 'set_net_delay'
-Slack : 5.348
+Slack : 5.269
 
 Type  : Fast 1200mV 0C Model Net Delay 'set_net_delay'
-Slack : 5.381
+Slack : 5.320
 
 Type  : Fast 1200mV 0C Model Net Delay 'set_net_delay'
-Slack : 5.386
+Slack : 5.357
 
 Type  : Fast 1200mV 0C Model Net Delay 'set_net_delay'
-Slack : 5.401
+Slack : 5.454
 
 Type  : Fast 1200mV 0C Model Net Delay 'set_net_delay'
-Slack : 5.476
+Slack : 5.479
 
 Type  : Fast 1200mV 0C Model Net Delay 'set_net_delay'
-Slack : 5.508
+Slack : 5.510
 
 Type  : Fast 1200mV 0C Model Net Delay 'set_net_delay'
-Slack : 5.535
+Slack : 5.584
 
 Type  : Fast 1200mV 0C Model Net Delay 'set_net_delay'
-Slack : 8.814
+Slack : 8.519
 
 Type  : Fast 1200mV 0C Model Net Delay 'set_net_delay'
-Slack : 9.264
+Slack : 9.055
 
 ------------------------------------------------------------

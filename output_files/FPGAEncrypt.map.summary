@@ -1,14 +1,14 @@
-Analysis & Synthesis Status : Successful - Sun Dec 14 19:06:29 2025
+Analysis & Synthesis Status : Successful - Mon Dec 15 21:05:56 2025
 Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 Revision Name : FPGAEncrypt
 Top-level Entity Name : c10lp_rgmii
 Family : Cyclone 10 LP
-Total logic elements : 17,550
-    Total combinational functions : 12,587
-    Dedicated logic registers : 10,635
-Total registers : 10671
+Total logic elements : 22,864
+    Total combinational functions : 15,068
+    Dedicated logic registers : 13,619
+Total registers : 13655
 Total pins : 138
 Total virtual pins : 0
-Total memory bits : 295,136
+Total memory bits : 296,640
 Embedded Multiplier 9-bit elements : 6
 Total PLLs : 2

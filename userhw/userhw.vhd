@@ -166,42 +166,37 @@ begin
 		end if;
 	end process;
 	
---	process(clk)
---	begin
---		if(rising_edge(clk)) then
---			if(rst = '1') then
---				data_out <= (others => '0');
---				data_ready <= '0';
---			elsif(data_ready = '1') then
---				 data_ready <= '0';
---			elsif(con_out(0) = '1' and data_ready = '0') then -- start
---				 if data_d(7 downto 0) = x"F7" then
---					  data_out <= x"00000000";
---				 else
---					  data_out <= (31 downto 8 => '0') & std_logic_vector(unsigned(data_d(7 downto 0))+1);
---				 end if;
---				 data_ready <= '1';
---			end if;
---		end if;
---	end process;
---
---	process(clk, read)
---		begin
---		if(rising_edge(clk)) then
---			if(read = '1') then
---				if(address = "010") then
---					if(data_ready = '1') then
---						readdata <= x"00000001";
---					else
---						readdata <= x"00000000";
---					end if;
---				elsif(address = "011") then
---					readdata <= data_out;
---				else
---					readdata <= (others => 'Z');
---				end if;
---			end if;
---		end if;
---	end process;
+	process(clk)
+		begin
+			if(rising_edge(clk)) then
+				if(read = '1') then
+					if(address = "100") then
+						case data_reg(2 downto 0) is
+							when "000" =>
+								readdata <= (31 downto 16 => reg0_data(15)) & std_logic_vector(reg0_data);
+							when "001" =>
+								readdata <= (31 downto 16 => reg0_data(15)) & std_logic_vector(reg1_data);
+							when "010" =>
+								readdata <= (31 downto 16 => reg0_data(15)) & std_logic_vector(reg2_data);
+							when "011" =>
+								readdata <= (31 downto 16 => reg0_data(15)) & std_logic_vector(reg3_data);
+							when "100" =>
+								readdata <= (31 downto 16 => reg0_data(15)) & std_logic_vector(reg4_data);
+							when "101" =>
+								readdata <= (31 downto 16 => reg0_data(15)) & std_logic_vector(reg5_data);
+							when "110" =>
+								readdata <= (31 downto 16 => reg0_data(15)) & std_logic_vector(reg6_data);
+							when others =>
+								readdata <= (others => '0');
+						end case;
+					elsif(address = "101") then
+						readdata <= (31 downto 1 => '0') & up_en;
+					else
+						readdata <= (others => '0');
+					
+					end if;
+				end if;
+			end if;
+	end process;
 
 end architecture;

@@ -15,23 +15,20 @@
 #define ADDR_DATA    1
 #define ADDR_RAM     2
 #define ADDR_STEP    3
+#define ADDR_READ    4
 
 int main() {
 	int instr;
 
-	instr = 0b00000000000000001; //LD R0,0
+	instr = 0b00000001110000001; //LD R0,7
 
 	IOWR(USERHW_0_BASE, ADDR_DATA, instr); //carrega instrução no reg de dados
-	IOWR(USERHW_0_BASE, ADDR_CONTROL, 2);  //end_ram vai receber writedata
+	IOWR(USERHW_0_BASE, ADDR_CONTROL, 1);  //end_ram vai receber writedata
 	IOWR(USERHW_0_BASE, ADDR_RAM, 0); 	   //end_ram = 0
 
-	instr = 0b00000001001110010; //MOV A,R0
-
-	IOWR(USERHW_0_BASE, ADDR_DATA, instr); //carrega instrução no reg de dados
-	IOWR(USERHW_0_BASE, ADDR_CONTROL, 2);  //end_ram vai receber writedata
-	IOWR(USERHW_0_BASE, ADDR_RAM, 0); 	   //end_ram = 0
-
-	IOWR(USERHW_0_BASE, ADDR_CONTROL, 4);  //run
-	while(1){}
+	IOWR(USERHW_0_BASE, ADDR_CONTROL, 4);              //run
+	IOWR(USERHW_0_BASE, ADDR_DATA, 0); 				   //endereça R0
+	unsigned int ans = IORD(USERHW_0_BASE, ADDR_READ); //lê o reg. endereçado
+	printf("%i", ans);
 	return 0;
 }

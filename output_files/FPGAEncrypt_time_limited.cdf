@@ -4,7 +4,7 @@ JedecChain;
 	DefaultMfr(6E);
 
 	P ActionCode(Cfg)
-		Device PartName(10CL025YU256) Path("C:/vhdl/projetofinal/FPGAEncrypt/output_files/") File("FPGAEncrypt_time_limited.sof") MfrSpec(OpMask(1));
+		Device PartName(10CL025YU256) Path("C:/vhdl/projetofinal/uprocessador_cyclone/output_files/") File("FPGAEncrypt_time_limited.sof") MfrSpec(OpMask(1));
 	P ActionCode(Ign)
 		Device PartName(VTAP10) MfrSpec(OpMask(0));
 
