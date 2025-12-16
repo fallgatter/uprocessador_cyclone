@@ -41,7 +41,7 @@ class AssemblyIDE:
 		btns.pack(side="top", fill="x")
 		#self.btn_send = ttk.Button(btns, text="Enviar Programa (ASM)", command=self.send_program, state="disabled")
 		self.btn_save = ttk.Button(btns, text="Salvar código", command=self.save_code, state="normal")
-		self.btn_step = ttk.Button(btns, text="Step", command=self.step_send_line, state="disabled")
+		self.btn_step = ttk.Button(btns, text="Step", command=self.step, state="disabled")
 		self.btn_run = ttk.Button(btns, text="Executar tudo", command=self.run_send_all, state="disabled")
 
 		#self.btn_send.pack(side="left", padx=4, pady=4)
@@ -124,27 +124,10 @@ class AssemblyIDE:
 		buffer = b""
 		while self.running_net:
 			try:
-				chunk = sock.recv(1024)
+				chunk = sock.recv(2048)
 				if not chunk:
 					break
-				buffer += chunk
-				while b";" in buffer:
-					len_part, rest = buffer.split(b";", 1)
-					try:
-						expected = int(len_part)
-					except ValueError:
-						# framing inválido, descarte
-						buffer = rest
-						continue
-					# aguarda payload completo
-					while len(rest) < expected:
-						more = sock.recv(1024)
-						if not more:
-							break
-						rest += more
-					msg = rest[:expected]
-					buffer = rest[expected:]
-					self._handle_server_message(msg)
+				self._handle_server_message(chunk)
 			except socket.timeout:
 				continue
 			except Exception as ex:
@@ -191,22 +174,6 @@ class AssemblyIDE:
 		except Exception as ex:
 			messagebox.showerror("Salvar código", f"Falha ao salvar: {ex}")
 
-	def assemble_program_lines(self) -> List[str]:
-		lines = self.text.get("1.0", "end").splitlines()
-		out: List[str] = []
-		for raw in lines:
-			code = raw.strip()
-			if not code:
-				continue
-			if code.startswith("#") or code.startswith(";"):
-				continue
-			binstr = assembler.assemble(code)
-			if binstr:
-				out.append(binstr)
-		if not out:
-			raise ValueError("Nenhuma instrução válida para montar.")
-		return out
-
 	def assemble_program_text(self) -> str:
 		lines = self.text.get("1.0", "end").splitlines()
 		out: List[str] = []
@@ -227,20 +194,16 @@ class AssemblyIDE:
 			raise ValueError("Nenhuma instrução válida para montar.")
 		return "\n".join(out)
 
-	def step_send_line(self) -> None:
+	def step(self) -> None:
 		try:
-			curr_src = self.text.get("1.0", "end")
-			if curr_src != self._step_source:
-				self._step_bins = self.assemble_program_lines()
-				self._step_idx = 0
-				self._step_source = curr_src
-			if self._step_idx >= len(self._step_bins):
-				self.status_var.set("Fim do programa para Step.")
-				return
-			line_bin = self._step_bins[self._step_idx]
-			self._send_framed(line_bin)
-			self._step_idx += 1
-			self.status_var.set(f"Step enviado ({self._step_idx}/{len(self._step_bins)}).")
+			prog = self.assemble_program_text()
+			prog = "STEP" + prog
+			print(prog)
+			self._send_framed(prog)
+			self.status_var.set("Programa completo enviado para execução.")
+			self._step_source = self.text.get("1.0", "end")
+			self._step_bins = prog.split("\n")
+			self._step_idx = len(self._step_bins)
 		except Exception as ex:
 			messagebox.showerror("Step", f"Falha no Step: {ex}")
 

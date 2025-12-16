@@ -129,8 +129,8 @@ begin
 	ram : ram_ext
 		port map(
 			clk => clk,
-			endereco => end_ram, -- Colocar PC aqui
-			wr_en => wren_ram, -- Tem que construir essa lógica aqui
+			endereco => end_ram, 
+			wr_en => wren_ram, 
 			dado_in => unsigned(data_reg(16 downto 0)),
 			dado_out => ram_data_out
 		);

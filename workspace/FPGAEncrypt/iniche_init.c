@@ -10,7 +10,7 @@
 #include "osport.h"
 #include <io.h>
 
-// Endereços dos registradores User_HW
+// Endereï¿½os dos registradores User_HW
 #define ADDR_CONTROL 0
 #define ADDR_DATA    1
 #define ADDR_RAM     2
@@ -22,13 +22,13 @@ int main() {
 
 	instr = 0b00000001110000001; //LD R0,7
 
-	IOWR(USERHW_0_BASE, ADDR_DATA, instr); //carrega instrução no reg de dados
+	IOWR(USERHW_0_BASE, ADDR_DATA, instr); //carrega instruï¿½ï¿½o no reg de dados
 	IOWR(USERHW_0_BASE, ADDR_CONTROL, 1);  //end_ram vai receber writedata
 	IOWR(USERHW_0_BASE, ADDR_RAM, 0); 	   //end_ram = 0
 
 	IOWR(USERHW_0_BASE, ADDR_CONTROL, 4);              //run
-	IOWR(USERHW_0_BASE, ADDR_DATA, 0); 				   //endereça R0
-	unsigned int ans = IORD(USERHW_0_BASE, ADDR_READ); //lê o reg. endereçado
+	IOWR(USERHW_0_BASE, ADDR_DATA, 0); 				   //endereï¿½a R0
+	unsigned int ans = IORD(USERHW_0_BASE, ADDR_READ); //lï¿½ o reg. endereï¿½ado
 	printf("%i", ans);
 	return 0;
 }
