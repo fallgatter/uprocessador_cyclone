@@ -1,14 +1,14 @@
-Fitter Status : Successful - Tue Dec 16 22:33:46 2025
+Fitter Status : Successful - Wed Dec 17 00:17:56 2025
 Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 Revision Name : FPGAEncrypt
 Top-level Entity Name : c10lp_rgmii
 Family : Cyclone 10 LP
 Device : 10CL025YU256I7G
 Timing Models : Final
-Total logic elements : 20,004 / 24,624 ( 81 % )
-    Total combinational functions : 15,223 / 24,624 ( 62 % )
-    Dedicated logic registers : 13,480 / 24,624 ( 55 % )
-Total registers : 13516
+Total logic elements : 20,034 / 24,624 ( 81 % )
+    Total combinational functions : 15,236 / 24,624 ( 62 % )
+    Dedicated logic registers : 13,488 / 24,624 ( 55 % )
+Total registers : 13524
 Total pins : 138 / 151 ( 91 % )
 Total virtual pins : 0
 Total memory bits : 296,640 / 608,256 ( 49 % )

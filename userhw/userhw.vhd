@@ -102,13 +102,13 @@ begin
 			data_out => data_reg
 		);
 		
-	reg_b: reg32_sc
+	reg_b: reg32
 		port map(
-			clock => clk,
-			resetn => rst_n,
-			WE => wren_b,
-			D => writedata,
-			Q => b_reg
+			clk => clk,
+			rst => rst_s,
+			wren => wren_b,
+			data_in => writedata,
+			data_out => b_reg
 		);
 		
 	reg_step: reg32_sc
@@ -183,18 +183,24 @@ begin
 	
 	clk_up <= clk and up_en;
 	
-	--bp_hit <= '1' when pc_value = unsigned(b_reg(6 downto 0)) else
-	--			 '0';
+	bp_hit <= '1' when pc_value = unsigned(b_reg(6 downto 0)) else
+				 '0';
 	
 	process(clk)
 	begin
 		if(rising_edge(clk)) then
-			--if(bp_hit = '1') then
-			--	up_en <= '0';
-			if((step_reg(0) = '1' and con_reg(2) = '0' and con_reg(1) = '1' and con_reg(0) = '1') or (con_reg(2) = '1' and con_reg(1) = '0' and con_reg(0) = '0')) then
-				up_en <= '1';
-			elsif(current_state = "10" and (con_reg(2) = '0' and con_reg(1) = '1' and con_reg(0) = '1')) then
-				up_en <= '0';
+			if(con_reg(2) = '1' and con_reg(1) = '0' and con_reg(0) = '0') then --run
+				if bp_hit = '1' then
+					up_en <= '0';
+				else
+					up_en <= '1';
+				end if;	
+			elsif(con_reg(2) = '0' and con_reg(1) = '1' and con_reg(0) = '1') then --step
+				if step_reg(0) = '1' then
+					up_en <= '1';
+				elsif current_state = "10" then
+					up_en <= '0';
+				end if;
 			end if;
 			if(pc_value = "1111111") then
 				up_en <= '0';
