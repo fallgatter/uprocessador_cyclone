@@ -12,9 +12,15 @@
 
 #define MAX_CHARS 2048
 #define MAX_INSTR 55
+<<<<<<< HEAD
 #define MAX_REGS 9 // Muda pra 9 se for adicionar o acumulador
 
-// Endereços dos registradores User_HW
+// Endereï¿½os dos registradores User_HW
+=======
+#define MAX_REGS 8 // Muda pra 9 se for adicionar o acumulador
+
+// EndereÃ§os dos registradores User_HW
+>>>>>>> 23ca67c88317e0e67481b863d8ea1988bada0fea
 #define ADDR_CONTROL 0
 #define ADDR_DATA    1
 #define ADDR_RAM     2
@@ -30,20 +36,36 @@ int sock, client, send = 0;
 
 void tcp_server_send(void *p) {
     INT8U err;
+<<<<<<< HEAD
     unsigned int cont_regs = 0;
+=======
+    unsigned int cont_regs = 0; 
+>>>>>>> 23ca67c88317e0e67481b863d8ea1988bada0fea
     while(1){
         // buffer final de envio
         char out[MAX_CHARS];
         memset(out, 0, sizeof(out));
+<<<<<<< HEAD
         const char *reg_names[] = {"R0", "R1", "R2", "R3", "R4", "R5", "R6", "A", "PC"};
         int offset = 0;
 
         while(cont_regs < MAX_REGS && send == 1) {
-            IOWR(USERHW_0_BASE, ADDR_DATA, cont_regs); // endereça REG
+            IOWR(USERHW_0_BASE, ADDR_DATA, cont_regs); // endereï¿½a REG
             unsigned int ans = IORD(USERHW_0_BASE, ADDR_READ);
 
             offset += sprintf(out + offset, "%s%s=%u",
-                              cont_regs > 0 ? " " : "",  // espaço antes, exceto no primeiro
+                              cont_regs > 0 ? " " : "",  // espaï¿½o antes, exceto no primeiro
+=======
+        const char *reg_names[] = {"R0", "R1", "R2", "R3", "R4", "R5", "R6", "PC"}; // Adiciona acumulador se quiser
+        int offset = 0;
+
+        while(cont_regs < MAX_REGS && send == 1) {
+            IOWR(USERHW_0_BASE, ADDR_DATA, cont_regs); // endereÃ§a REG
+            unsigned int ans = IORD(USERHW_0_BASE, ADDR_READ);
+
+            offset += sprintf(out + offset, "%s%s=%u",
+                              cont_regs > 0 ? " " : "",  // espaÃ§o antes, exceto no primeiro
+>>>>>>> 23ca67c88317e0e67481b863d8ea1988bada0fea
                               reg_names[cont_regs],
                               ans);
             cont_regs++;
@@ -53,6 +75,7 @@ void tcp_server_send(void *p) {
         // envia resposta
         int sent = send(client, out, offset, 0);
 
+<<<<<<< HEAD
         //printf("%s\n", out);
         if (sent < 0) {
             //printf("Erro ao enviar resposta\n");
@@ -62,24 +85,35 @@ void tcp_server_send(void *p) {
         }
 
         OSTimeDly(100);
+=======
+        printf("%s\n", out);
+        if (sent < 0) {
+            printf("Erro ao enviar resposta\n");
+        } else {
+            printf("Enviado de volta: %d bytes\n", sent);
+        }
+>>>>>>> 23ca67c88317e0e67481b863d8ea1988bada0fea
     }
 }
 
 void load_instructions(const char *instr_str) {
 	char *str_copy = strdup(instr_str); // copia a string pois strtok modifica
+<<<<<<< HEAD
 	printf("%s", str_copy);
+=======
+>>>>>>> 23ca67c88317e0e67481b863d8ea1988bada0fea
 	char *token;
 	int addr = 0;
 	int instr;
 
-	// Itera sobre cada instrução separada por \n
+	// Itera sobre cada instruï¿½ï¿½o separada por \n
 	token = strtok(str_copy, "\n");
 	while (token != NULL) {
-		// Converte a instrução (suporta binário 0b, hex 0x, ou decimal)
+		// Converte a instruï¿½ï¿½o (suporta binï¿½rio 0b, hex 0x, ou decimal)
 		instr = (int)strtol(token, NULL, 2);
 
-		// Carrega instrução na RAM
-		IOWR(USERHW_0_BASE, ADDR_DATA, instr);    // carrega instrução no reg de dados
+		// Carrega instruï¿½ï¿½o na RAM
+		IOWR(USERHW_0_BASE, ADDR_DATA, instr);    // carrega instruï¿½ï¿½o no reg de dados
 		IOWR(USERHW_0_BASE, ADDR_CONTROL, 1);     // end_ram vai receber writedata
 		IOWR(USERHW_0_BASE, ADDR_RAM, addr);      // end_ram = addr
 
