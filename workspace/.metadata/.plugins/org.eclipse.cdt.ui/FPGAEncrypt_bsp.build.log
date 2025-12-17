@@ -1,6 +1,6 @@
-22:14:49 **** Incremental Build of configuration Nios II for project FPGAEncrypt_bsp ****
+20:10:18 **** Incremental Build of configuration Nios II for project FPGAEncrypt_bsp ****
 make all 
 [BSP build complete]
 
-22:14:51 Build Finished (took 1s.440ms)
+20:10:19 Build Finished (took 958ms)
 

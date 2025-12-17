@@ -1,5 +1,5 @@
 Flow report for FPGAEncrypt
-Mon Dec 15 21:09:11 2025
+Tue Dec 16 22:34:07 2025
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -40,17 +40,17 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Mon Dec 15 21:08:55 2025       ;
+; Flow Status                        ; Successful - Tue Dec 16 22:33:55 2025       ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                      ; FPGAEncrypt                                 ;
 ; Top-level Entity Name              ; c10lp_rgmii                                 ;
 ; Family                             ; Cyclone 10 LP                               ;
 ; Device                             ; 10CL025YU256I7G                             ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 20,037 / 24,624 ( 81 % )                    ;
-;     Total combinational functions  ; 15,206 / 24,624 ( 62 % )                    ;
-;     Dedicated logic registers      ; 13,478 / 24,624 ( 55 % )                    ;
-; Total registers                    ; 13514                                       ;
+; Total logic elements               ; 20,004 / 24,624 ( 81 % )                    ;
+;     Total combinational functions  ; 15,223 / 24,624 ( 62 % )                    ;
+;     Dedicated logic registers      ; 13,480 / 24,624 ( 55 % )                    ;
+; Total registers                    ; 13516                                       ;
 ; Total pins                         ; 138 / 151 ( 91 % )                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 296,640 / 608,256 ( 49 % )                  ;
@@ -64,7 +64,7 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 12/15/2025 21:01:07 ;
+; Start date & time ; 12/16/2025 22:28:40 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; FPGAEncrypt         ;
 +-------------------+---------------------+
@@ -78,7 +78,7 @@ refer to the applicable agreement for further details.
 ; ADV_NETLIST_OPT_SYNTH_WYSIWYG_REMAP               ; On                                     ; Off           ; --          ; --             ;
 ; ALLOW_REGISTER_MERGING                            ; Off                                    ; On            ; --          ; --             ;
 ; ALLOW_REGISTER_RETIMING                           ; Off                                    ; On            ; --          ; --             ;
-; COMPILER_SIGNATURE_ID                             ; 213533739013913.176584326638580        ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID                             ; 213533739013913.176593491944676        ; --            ; --          ; --             ;
 ; CYCLONEII_OPTIMIZATION_TECHNIQUE                  ; Speed                                  ; Balanced      ; --          ; --             ;
 ; ECO_REGENERATE_REPORT                             ; On                                     ; Off           ; --          ; --             ;
 ; EDA_OUTPUT_DATA_FORMAT                            ; None                                   ; --            ; --          ; eda_simulation ;
@@ -125,11 +125,11 @@ refer to the applicable agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:04:30     ; 1.0                     ; 5439 MB             ; 00:04:33                           ;
-; Fitter               ; 00:02:43     ; 1.7                     ; 6282 MB             ; 00:07:24                           ;
-; Assembler            ; 00:00:04     ; 1.0                     ; 4768 MB             ; 00:00:04                           ;
-; Timing Analyzer      ; 00:00:15     ; 1.9                     ; 5137 MB             ; 00:00:26                           ;
-; Total                ; 00:07:32     ; --                      ; --                  ; 00:12:27                           ;
+; Analysis & Synthesis ; 00:02:50     ; 1.0                     ; 5440 MB             ; 00:03:04                           ;
+; Fitter               ; 00:02:02     ; 1.7                     ; 6298 MB             ; 00:05:46                           ;
+; Assembler            ; 00:00:02     ; 1.0                     ; 4769 MB             ; 00:00:03                           ;
+; Timing Analyzer      ; 00:00:11     ; 1.9                     ; 5134 MB             ; 00:00:18                           ;
+; Total                ; 00:05:05     ; --                      ; --                  ; 00:09:11                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

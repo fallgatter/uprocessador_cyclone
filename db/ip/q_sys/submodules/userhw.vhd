@@ -57,11 +57,13 @@ architecture userhw_arch of userhw is
 		);
 	end component;
 		
-	signal wren_c, wren_d, wren_ram, wren_step, rst_n : std_logic;
+	signal wren_c, wren_d, wren_ram, wren_step, wren_reset, wren_b, rst_n, rst_s, bp_hit : std_logic := '0';
 
 	signal con_reg  : std_logic_vector(31 downto 0);
 	signal data_reg   : std_logic_vector(31 downto 0);
 	signal step_reg   : std_logic_vector(31 downto 0);
+	signal reset_reg   : std_logic_vector(31 downto 0);
+	signal b_reg   : std_logic_vector(31 downto 0);
 	signal data_out : std_logic_vector(31 downto 0);
 	signal ram_data_out : unsigned(16 downto 0);
 	signal data_ready : std_logic := '0';
@@ -85,7 +87,7 @@ begin
 	con : reg32 --controle
 		port map(
 			clk => clk,
-			rst => rst,
+			rst => rst_s,
 			wren => wren_c,
 			data_in => writedata,
 			data_out => con_reg
@@ -94,10 +96,19 @@ begin
 	reg_d : reg32 --dados
 		port map(
 			clk => clk,
-			rst => rst,
+			rst => rst_s,
 			wren => wren_d,
 			data_in => writedata,
 			data_out => data_reg
+		);
+		
+	reg_b: reg32_sc
+		port map(
+			clock => clk,
+			resetn => rst_n,
+			WE => wren_b,
+			D => writedata,
+			Q => b_reg
 		);
 		
 	reg_step: reg32_sc
@@ -109,10 +120,19 @@ begin
 			Q => step_reg
 		);
 		
+	reg_reset: reg32_sc
+		port map(
+			clock => clk,
+			resetn => rst_n,
+			WE => wren_reset,
+			D => writedata,
+			Q => reset_reg
+		);
+		
 	up : processador
 		port map(
 			clk 		 => clk_up,
-			reset     => rst,
+			reset     => rst_s,
 			instr     => ram_data_out,
 			state_now => current_state,
 			acum_data => acum_data,
@@ -129,13 +149,15 @@ begin
 	ram : ram_ext
 		port map(
 			clk => clk,
-			endereco => end_ram, -- Colocar PC aqui
-			wr_en => wren_ram, -- Tem que construir essa lógica aqui
+			endereco => end_ram, 
+			wr_en => wren_ram, 
 			dado_in => unsigned(data_reg(16 downto 0)),
 			dado_out => ram_data_out
 		);
-		
-	rst_n <= not rst;
+	
+	rst_s <= rst or reset_reg(0);
+	
+	rst_n <= not rst_s;
 		
 	wren_c <= '1' when (address = "000" and write = '1') else 
 				 '0';
@@ -148,6 +170,12 @@ begin
 					
 	wren_step <= '1' when (address = "011" and write = '1') else
 					 '0';
+					 
+	wren_reset <= '1' when (address = "101" and write = '1') else
+					 '0';
+					 
+	wren_b <= '1' when (address = "110" and write = '1') else
+					 '0';
 					
 	end_ram <= unsigned(writedata(6 downto 0)) when con_reg(2) = '0' and con_reg(1) = '0' and con_reg(0) = '1' else
 				  pc_value;-- when con_reg(2) = '0' and con_reg(1) = '1' and con_reg(0) = '0' else
@@ -155,12 +183,20 @@ begin
 	
 	clk_up <= clk and up_en;
 	
+	--bp_hit <= '1' when pc_value = unsigned(b_reg(6 downto 0)) else
+	--			 '0';
+	
 	process(clk)
 	begin
 		if(rising_edge(clk)) then
+			--if(bp_hit = '1') then
+			--	up_en <= '0';
 			if((step_reg(0) = '1' and con_reg(2) = '0' and con_reg(1) = '1' and con_reg(0) = '1') or (con_reg(2) = '1' and con_reg(1) = '0' and con_reg(0) = '0')) then
 				up_en <= '1';
 			elsif(current_state = "10" and (con_reg(2) = '0' and con_reg(1) = '1' and con_reg(0) = '1')) then
+				up_en <= '0';
+			end if;
+			if(pc_value = "1111111") then
 				up_en <= '0';
 			end if;
 		end if;
@@ -171,26 +207,28 @@ begin
 			if(rising_edge(clk)) then
 				if(read = '1') then
 					if(address = "100") then
-						case data_reg(2 downto 0) is
-							when "000" =>
+						case data_reg(3 downto 0) is
+							when "0000" =>
 								readdata <= (31 downto 16 => reg0_data(15)) & std_logic_vector(reg0_data);
-							when "001" =>
-								readdata <= (31 downto 16 => reg0_data(15)) & std_logic_vector(reg1_data);
-							when "010" =>
-								readdata <= (31 downto 16 => reg0_data(15)) & std_logic_vector(reg2_data);
-							when "011" =>
-								readdata <= (31 downto 16 => reg0_data(15)) & std_logic_vector(reg3_data);
-							when "100" =>
-								readdata <= (31 downto 16 => reg0_data(15)) & std_logic_vector(reg4_data);
-							when "101" =>
-								readdata <= (31 downto 16 => reg0_data(15)) & std_logic_vector(reg5_data);
-							when "110" =>
-								readdata <= (31 downto 16 => reg0_data(15)) & std_logic_vector(reg6_data);
+							when "0001" =>
+								readdata <= (31 downto 16 => reg1_data(15)) & std_logic_vector(reg1_data);
+							when "0010" =>
+								readdata <= (31 downto 16 => reg2_data(15)) & std_logic_vector(reg2_data);
+							when "0011" =>
+								readdata <= (31 downto 16 => reg3_data(15)) & std_logic_vector(reg3_data);
+							when "0100" =>
+								readdata <= (31 downto 16 => reg4_data(15)) & std_logic_vector(reg4_data);
+							when "0101" =>
+								readdata <= (31 downto 16 => reg5_data(15)) & std_logic_vector(reg5_data);
+							when "0110" =>
+								readdata <= (31 downto 16 => reg6_data(15)) & std_logic_vector(reg6_data);
+							when "0111" =>
+								readdata <= (31 downto 16 => acum_data(15)) & std_logic_vector(acum_data);
+							when "1000" =>
+								readdata <= (31 downto 7 => pc_value(6)) & std_logic_vector(pc_value);
 							when others =>
 								readdata <= (others => '0');
 						end case;
-					elsif(address = "101") then
-						readdata <= (31 downto 1 => '0') & up_en;
 					else
 						readdata <= (others => '0');
 					

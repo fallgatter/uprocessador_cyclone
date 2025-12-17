@@ -3,228 +3,258 @@ import threading
 import re
 import tkinter as tk
 from tkinter import ttk, messagebox
-from typing import Dict, Optional, List
+from typing import Dict, Optional
 import assembler
-
-HARD_CODED_HOST = "127.0.0.1"
-HARD_CODED_PORT = 65535
 
 
 class AssemblyIDE:
 	def __init__(self, root: tk.Tk) -> None:
 		self.root = root
-		self.root.title("IDE Assembly (Cliente) - Envia binário via socket")
+		self.root.title("IDE Assembly (Cliente)")
 
-		# Conexão
 		self.client_socket: Optional[socket.socket] = None
-		self.recv_thread: Optional[threading.Thread] = None
-		self.running_net: bool = False
+		self.running_net = False
 
-		# Registradores mostrados (valores chegam do servidor)
 		self.reg_vars: Dict[str, tk.StringVar] = {}
 
-		# Estado de envio step-by-step
-		self._step_bins: List[str] = []
-		self._step_idx: int = 0
-		self._step_source: str = ""
+		self.last_pc: Optional[int] = None
+		self.auto_scroll: bool = False  # <<< CONTROLE DO SCROLL
 
 		self._build_ui()
 		self._update_register_view_initial()
-		self._auto_connect()
 
-	def _build_ui(self) -> None:
+	# ================= UI =================
+
+	def _build_ui(self):
 		main = ttk.Frame(self.root)
 		main.pack(fill="both", expand=True)
 
-		# Botões de ação
+		# ================= CONEXÃO =================
+		conn = ttk.Frame(main)
+		conn.pack(fill="x", padx=6, pady=4)
+
+		ttk.Label(conn, text="IP:").pack(side="left")
+		self.ip_var = tk.StringVar(value="192.168.1.101")
+		ttk.Entry(conn, textvariable=self.ip_var, width=15).pack(side="left", padx=4)
+
+		ttk.Label(conn, text="Porta:").pack(side="left")
+		self.port_var = tk.StringVar(value="8080")
+		ttk.Entry(conn, textvariable=self.port_var, width=6).pack(side="left", padx=4)
+
+		self.btn_connect = ttk.Button(conn, text="Conectar", command=self.connect)
+		self.btn_connect.pack(side="left", padx=6)
+
+		# ================= BOTÕES =================
 		btns = ttk.Frame(main)
-		btns.pack(side="top", fill="x")
-		#self.btn_send = ttk.Button(btns, text="Enviar Programa (ASM)", command=self.send_program, state="disabled")
-		self.btn_save = ttk.Button(btns, text="Salvar código", command=self.save_code, state="normal")
-		self.btn_step = ttk.Button(btns, text="Step", command=self.step, state="disabled")
-		self.btn_run = ttk.Button(btns, text="Executar tudo", command=self.run_send_all, state="disabled")
+		btns.pack(fill="x")
 
-		#self.btn_send.pack(side="left", padx=4, pady=4)
-		self.btn_save.pack(side="left", padx=4, pady=4)
-		self.btn_step.pack(side="left", padx=4, pady=4)
-		self.btn_run.pack(side="left", padx=4, pady=4)
+		self.btn_send = ttk.Button(btns, text="Enviar Programa", command=self.send_program, state="disabled")
+		self.btn_step = ttk.Button(btns, text="STEP", command=self.send_step, state="disabled")
+		self.btn_run = ttk.Button(btns, text="RUN", command=self.send_run, state="disabled")
+		self.btn_reset = ttk.Button(btns, text="RESET", command=self.send_reset, state="disabled")
+		self.btn_bp = ttk.Button(btns, text="BP", command=self.send_breakpoint, state="disabled")
+		self.btn_save = ttk.Button(btns, text="Salvar código", command=self.save_code)
 
+		for b in (self.btn_send, self.btn_step, self.btn_run, self.btn_reset, self.btn_bp, self.btn_save):
+			b.pack(side="left", padx=4, pady=4)
+
+		# ================= CONTEÚDO =================
 		content = ttk.Frame(main)
-		content.pack(side="top", fill="both", expand=True)
+		content.pack(fill="both", expand=True)
 
-		# Editor
+		# -------- Editor --------
 		editor_frame = ttk.Frame(content)
 		editor_frame.pack(side="left", fill="both", expand=True)
 
-		self.text = tk.Text(editor_frame, wrap="none", undo=True, height=28, width=80)
-		ys = ttk.Scrollbar(editor_frame, orient="vertical", command=self.text.yview)
-		self.text.configure(yscrollcommand=ys.set)
+		self.text = tk.Text(editor_frame, wrap="none", undo=True)
 		self.text.pack(side="left", fill="both", expand=True)
-		ys.pack(side="right", fill="y")
 
-		# Painel direito
+		scroll = ttk.Scrollbar(editor_frame, orient="vertical", command=self.text.yview)
+		self.text.configure(yscrollcommand=scroll.set)
+		scroll.pack(side="right", fill="y")
+
+		self.text.tag_configure("pc_line", background="#fff3a0")
+
+		# -------- Registradores --------
 		right = ttk.Frame(content)
-		right.pack(side="right", fill="both")
+		right.pack(side="right", fill="y", padx=10)
 
-		lbl = ttk.Label(right, text="Registradores (do servidor)", font=("TkDefaultFont", 10, "bold"))
-		lbl.pack(side="top", anchor="w", padx=8, pady=(8, 4))
+		ttk.Label(right, text="Registradores", font=("TkDefaultFont", 10, "bold"))\
+			.pack(anchor="w", pady=(4, 8))
 
-		self.reg_grid = ttk.Frame(right)
-		self.reg_grid.pack(side="top", fill="x", padx=8)
+		for name in [f"R{i}" for i in range(7)] + ["A", "PC"]:
+			row = ttk.Frame(right)
+			row.pack(anchor="w", pady=2)
+			ttk.Label(row, text=f"{name}:").pack(side="left")
+			var = tk.StringVar(value="0")
+			self.reg_vars[name] = var
+			ttk.Label(row, textvariable=var, width=10).pack(side="left")
 
-		all_regs = [f"R{i}" for i in range(7)] + ["A", "PC"]
-		for idx, name in enumerate(all_regs):
-			row = idx // 2
-			col = (idx % 2) * 2
-			label = ttk.Label(self.reg_grid, text=name + ":")
-			value_var = tk.StringVar(value="0")
-			value = ttk.Label(self.reg_grid, textvariable=value_var, width=12)
-			label.grid(row=row, column=col, sticky="w", padx=(0, 6), pady=2)
-			value.grid(row=row, column=col + 1, sticky="w", pady=2)
-			self.reg_vars[name] = value_var
+		# ================= STATUS =================
+		self.status_var = tk.StringVar(value="Desconectado")
+		ttk.Label(main, textvariable=self.status_var)\
+			.pack(fill="x", padx=6, pady=4)
 
-		# Status
-		self.status_var = tk.StringVar(value="Conectando...")
-		status = ttk.Label(main, textvariable=self.status_var, anchor="w")
-		status.pack(side="bottom", fill="x", padx=6, pady=4)
+	def _update_register_view_initial(self):
+		for v in self.reg_vars.values():
+			v.set("0")
 
-	def _update_register_view_initial(self) -> None:
-		for i in range(7):
-			self.reg_vars[f"R{i}"].set("0")
-		self.reg_vars["A"].set("0")
-		self.reg_vars["PC"].set("0")
+	def _set_actions_enabled(self, enabled: bool):
+		state = "normal" if enabled else "disabled"
+		for b in (self.btn_send, self.btn_step, self.btn_run, self.btn_reset, self.btn_bp):
+			b.config(state=state)
 
-	def _auto_connect(self) -> None:
-		if self.client_socket is not None:
-			return
+	# ================= REDE =================
+
+	def connect(self):
 		try:
-			sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-			sock.settimeout(10)
-			sock.connect((HARD_CODED_HOST, HARD_CODED_PORT))
-			self.client_socket = sock
+			ip = self.ip_var.get().strip()
+			port = int(self.port_var.get())
+
+			self.client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+			self.client_socket.connect((ip, port))
 			self.running_net = True
-			self.recv_thread = threading.Thread(target=self._recv_loop, daemon=True)
-			self.recv_thread.start()
-			self.status_var.set(f"Conectado a {HARD_CODED_HOST}:{HARD_CODED_PORT}")
+
+			threading.Thread(target=self._recv_loop, daemon=True).start()
+
+			self.status_var.set(f"Conectado a {ip}:{port}")
 			self._set_actions_enabled(True)
-		except Exception as ex:
-			self.client_socket = None
-			self.status_var.set(f"Falha na conexão: {ex}")
+		except Exception as e:
+			messagebox.showerror("Conexão", str(e))
 			self._set_actions_enabled(False)
 
-	def _set_actions_enabled(self, enabled: bool) -> None:
-		state = "normal" if enabled else "disabled"
-		self.btn_step.configure(state=state)
-		self.btn_run.configure(state=state)
-
-	def _recv_loop(self) -> None:
-		assert self.client_socket is not None
-		sock = self.client_socket
-		sock.settimeout(1)
-		buffer = b""
+	def _recv_loop(self):
 		while self.running_net:
 			try:
-				chunk = sock.recv(2048)
-				if not chunk:
+				data = self.client_socket.recv(2048)
+				if not data:
 					break
-				self._handle_server_message(chunk)
-			except socket.timeout:
-				continue
-			except Exception as ex:
-				self.root.after(0, lambda: self.status_var.set(f"Erro de recepção: {ex}"))
+				self._handle_server_message(data)
+			except:
 				break
-		self.root.after(0, lambda: self.status_var.set("Conexão encerrada pelo servidor."))
-		self.root.after(0, lambda: self._set_actions_enabled(False))
-		self.client_socket = None
-		self.running_net = False
 
-	def _handle_server_message(self, data: bytes) -> None:
-		try:
-			text = data.decode("utf-8", errors="replace")
-		except Exception:
-			text = f"<{len(data)} bytes binários>"
-		self._maybe_update_registers_from_text(text)
+	def _handle_server_message(self, data: bytes):
+		text = data.decode(errors="ignore")
+		print(text)
 
-	def _maybe_update_registers_from_text(self, text: str) -> None:
-		# Tenta extrair registradores de respostas no formato:
-		# "R0=10 R1=0 R2=0 R3=0 R4=0 R5=0 R6=0 A=0 PC=3"
-		pat = r"\b(R[0-6]|A|PC)=(-?\d+)\b"
-		matches = re.findall(pat, text)
-		if not matches:
+		matches = re.findall(r"(R[0-6]|A|PC)=(-?\d+)", text)
+		if matches:
+			def update():
+				for k, v in matches:
+					self.reg_vars[k].set(v)
+					if k == "PC":
+						try:
+							self._highlight_pc(int(v))
+						except:
+							pass
+
+			self.root.after(0, update)
+
+	def _send_framed(self, msg: str):
+		print(msg)
+		self.client_socket.sendall(msg.encode())
+
+	# ================= HIGHLIGHT PC =================
+
+	def _instruction_lines(self):
+		lines = []
+		for idx, line in enumerate(self.text.get("1.0", "end").splitlines()):
+			l = line.strip()
+			if l and not l.startswith(("#", ";")):
+				lines.append(idx + 1)
+		return lines
+
+	def _clear_highlight(self):
+		self.text.tag_remove("pc_line", "1.0", "end")
+
+	def _highlight_pc(self, pc_value: int):
+		if pc_value == self.last_pc:
 			return
-		def update():
-			for name, val in matches:
-				if name in self.reg_vars:
-					self.reg_vars[name].set(val)
-		self.root.after(0, update)
 
-	def _send_framed(self, msg: str) -> None:
-		if self.client_socket is None:
-			raise RuntimeError("Não conectado.")
-		data = msg.encode("utf-8")
-		frame = f"{len(data)};".encode("utf-8") + data
-		self.client_socket.sendall(frame)
+		self.last_pc = pc_value
+		self._clear_highlight()
 
-	def save_code(self) -> None:
+		instr_lines = self._instruction_lines()
+		if pc_value < 0 or pc_value >= len(instr_lines):
+			return
+
+		line = instr_lines[pc_value]
+		start = f"{line}.0"
+		end = f"{line}.end"
+
+		self.text.tag_add("pc_line", start, end)
+
+		if self.auto_scroll:
+			self.text.see(start)
+
+	# ================= BREAKPOINT =================
+
+	def _cursor_instruction_index(self) -> int:
+		cursor_line = int(self.text.index("insert").split(".")[0])
+		instr_lines = self._instruction_lines()
+
+		if cursor_line not in instr_lines:
+			raise ValueError("Cursor não está em uma instrução válida")
+
+		return instr_lines.index(cursor_line)
+
+	def send_breakpoint(self):
 		try:
-			code = self.text.get("1.0", "end")
-			with open("/home/kauan/Documents/log-rec/assembly.s", "w") as f:
-				f.write(code)
-			self.status_var.set("Código salvo em assembly.s")
-		except Exception as ex:
-			messagebox.showerror("Salvar código", f"Falha ao salvar: {ex}")
+			idx = self._cursor_instruction_index()
+			self._send_framed(f"BP {idx}")
+			self.status_var.set(f"Breakpoint definido na instrução {idx}")
+		except Exception as e:
+			messagebox.showerror("Breakpoint", str(e))
+
+	# ================= AÇÕES =================
 
 	def assemble_program_text(self) -> str:
-		lines = self.text.get("1.0", "end").splitlines()
-		out: List[str] = []
-		for raw in lines:
-			code = raw.strip()
-			if not code:
-				continue
-			# suporta comentários iniciando com '#' ou ';'
-			if code.startswith("#") or code.startswith(";"):
-				continue
-			try:
-				binstr = assembler.assemble(code)
-			except Exception as ex:
-				raise ValueError(f"Erro ao montar '{code}': {ex}")
-			if binstr:
-				out.append(binstr)
+		out = []
+		for line in self.text.get("1.0", "end").splitlines():
+			line = line.strip()
+			if line and not line.startswith(("#", ";")):
+				out.append(assembler.assemble(line))
 		if not out:
-			raise ValueError("Nenhuma instrução válida para montar.")
+			raise ValueError("Programa vazio")
 		return "\n".join(out)
 
-	def step(self) -> None:
+	def send_program(self):
 		try:
-			prog = self.assemble_program_text()
-			prog = "STEP" + prog
-			print(prog)
-			self._send_framed(prog)
-			self.status_var.set("Programa completo enviado para execução.")
-			self._step_source = self.text.get("1.0", "end")
-			self._step_bins = prog.split("\n")
-			self._step_idx = len(self._step_bins)
-		except Exception as ex:
-			messagebox.showerror("Step", f"Falha no Step: {ex}")
+			self.auto_scroll = False
+			self.last_pc = None
+			self._send_framed(self.assemble_program_text())
+			self.status_var.set("Programa enviado")
+		except Exception as e:
+			messagebox.showerror("Erro", str(e))
 
-	def run_send_all(self) -> None:
-		try:
-			prog = self.assemble_program_text()
-			self._send_framed(prog)
-			self.status_var.set("Programa completo enviado para execução.")
-			self._step_source = self.text.get("1.0", "end")
-			self._step_bins = prog.split("\n")
-			self._step_idx = len(self._step_bins)
-		except Exception as ex:
-			messagebox.showerror("Executar tudo", f"Falha ao enviar programa: {ex}")
+	def send_step(self):
+		self.auto_scroll = True
+		self._send_framed("STEP")
+		self.status_var.set("STEP enviado")
 
-def main() -> None:
+	def send_run(self):
+		self.auto_scroll = False
+		self._send_framed("RUN")
+		self.status_var.set("RUN enviado")
+
+	def send_reset(self):
+		self.auto_scroll = False
+		self.last_pc = None
+		self._send_framed("RESET")
+		self._clear_highlight()
+		self.status_var.set("RESET enviado")
+
+	def save_code(self):
+		with open("assembly.s", "w") as f:
+			f.write(self.text.get("1.0", "end"))
+		self.status_var.set("Código salvo")
+
+
+def main():
 	root = tk.Tk()
-	app = AssemblyIDE(root)
+	AssemblyIDE(root)
 	root.mainloop()
 
 
 if __name__ == "__main__":
 	main()
-
-
